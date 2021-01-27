@@ -32,6 +32,12 @@ print "  <style type='text/css'>
           stroke:rgb(150, 150, 150);
           stroke-width: 1px;
       }
+      .person_holiday_bs {
+          fill: rgb(150, 255, 150);
+      }
+      .person_holiday_th {
+          fill: rgb(150, 150, 255);
+      }
     ]]>
   </style>
 ";
@@ -44,6 +50,31 @@ my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
 my %highlight_days = ( "2021-01-27" => "fill:rgb(255,200,200);",
                        "2021-12-24" => "fill:rgb(200,200,255); stroke-width:1; stroke:rgb(0,0,0);",
                      );
+
+# Person's holidays
+# Format: name or id => from - to (yyyy-mm-dd)
+my %persons_holidays = ( "bs" => "2021-02-24 - 2021-03-03",
+                         "th" => "2021-05-03 - 2021-05-05",
+                       );
+
+my %persons_holidays_table;
+for my $person ( keys %persons_holidays ) {
+    my $from_to = $persons_holidays{$person};
+    my ( $from, $to ) = $from_to =~ /^(....-..-..) - (....-..-..)$/;
+    my ( $y, $m, $d );
+    ( $y, $m, $d ) = $from =~ /^(....)-(..)-(..)$/;
+    my $unix_ts;
+    $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+    my $dayofyear_begin = (localtime( $unix_ts ))[7];
+    ( $y, $m, $d ) = $to =~ /^(....)-(..)-(..)$/;
+    $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+    my $dayofyear_end = (localtime( $unix_ts ))[7];
+    die if $dayofyear_end < $dayofyear_begin;
+    for ( $dayofyear_begin .. $dayofyear_end ) {
+        $persons_holidays_table{$person}[$_] = 1;
+    }
+
+}
 
 my $start_month_names_y = 25;
 my $start_days_of_month_y = $start_month_names_y + 5;
@@ -66,6 +97,7 @@ for my $month ( 1 .. 12 ) {
         # Calculate day properties
         my $unix_ts = POSIX::mktime( 0, 0, 0,  $day, $month-1, $year-1900 );
         my $dayofweek = (localtime( $unix_ts ))[6];
+        my $dayofyear = (localtime( $unix_ts ))[7];
 
         # Hightlight day?
         my $ymd = sprintf "%04d-%02d-%02d", $year, $month, $day;
@@ -74,6 +106,16 @@ for my $month ( 1 .. 12 ) {
                     $start_month_col_x, $day_y - 25 + 5 + 1,
                     $month_w-$line_gap_w, 25 - 2,
                     $highlight_days{$ymd};
+        }
+
+        # Check person's holidays
+        for my $person ( keys %persons_holidays_table ) {
+            if ( $persons_holidays_table{ $person }[$dayofyear] ) {
+                printf "<rect class='person_holiday_$person' x='%d' y='%d' width='%d' height='%d' />\n",
+                        $start_month_col_x, $day_y - 25 + 5 + 1,
+                        $month_w-$line_gap_w, 25 - 2;
+
+            }
         }
 
         # Day (1, 2, ...)
