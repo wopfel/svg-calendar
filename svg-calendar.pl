@@ -54,8 +54,10 @@ for my $month ( 1 .. 12 ) {
 
     for my $day ( 1 .. $days_this_month ) {
 
-        my $unix_ts = POSIX::mktime( 0, 0, 0,  $day, $month-1, $year-1900 );
+        # Calculate positions
         my $day_y = $start_days_of_month_y + 25 * $day;
+        # Calculate day properties
+        my $unix_ts = POSIX::mktime( 0, 0, 0,  $day, $month-1, $year-1900 );
         my $dayofweek = (localtime( $unix_ts ))[6];
 
         printf "<text x='%d' y='%d'>%d</text>\n", $start_month_col_x, $day_y, $day;
