@@ -56,6 +56,7 @@ for my $month ( 1 .. 12 ) {
 
         # Calculate positions
         my $day_y = $start_days_of_month_y + 25 * $day;
+        my $line_gap_w = 5;
         # Calculate day properties
         my $unix_ts = POSIX::mktime( 0, 0, 0,  $day, $month-1, $year-1900 );
         my $dayofweek = (localtime( $unix_ts ))[6];
@@ -65,7 +66,7 @@ for my $month ( 1 .. 12 ) {
         # Day of week
         printf "<text class='nameofday dayofweek%d' x='%d' y='%d'>%s</text>\n", $dayofweek, $start_month_col_x + 25, $day_y, $dayofweek_text[$dayofweek];
         # Line below a cell
-        printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y+5, $start_month_col_x + $month_w, $day_y+5;
+        printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y+5, $start_month_col_x + $month_w - $line_gap_w, $day_y+5;
 
     }
 }
