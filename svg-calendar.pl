@@ -104,7 +104,7 @@ for my $month ( 1 .. 12 ) {
         my $dayofweek = (localtime( $unix_ts ))[6];
         my $dayofyear = (localtime( $unix_ts ))[7];
 
-        # Hightlight day?
+        # Highlight day?
         my $ymd = sprintf "%04d-%02d-%02d", $year, $month, $day;
         if ( exists $highlight_days{$ymd} ) {
             printf "<rect x='%d' y='%d' width='%d' height='%d' style='%s' />\n",
