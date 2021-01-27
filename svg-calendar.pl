@@ -57,19 +57,24 @@ my %persons_holidays = ( "bs" => "2021-02-24 - 2021-03-03",
                          "th" => "2021-05-03 - 2021-05-05",
                        );
 
+# Calculate a table for each person, setting dayofyear to 1 if person is in holidays
 my %persons_holidays_table;
 for my $person ( keys %persons_holidays ) {
+    # Get from-to-line
     my $from_to = $persons_holidays{$person};
     my ( $from, $to ) = $from_to =~ /^(....-..-..) - (....-..-..)$/;
     my ( $y, $m, $d );
+    # Calculate beginning of holidays
     ( $y, $m, $d ) = $from =~ /^(....)-(..)-(..)$/;
     my $unix_ts;
     $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
     my $dayofyear_begin = (localtime( $unix_ts ))[7];
+    # Calculate ending of holidays
     ( $y, $m, $d ) = $to =~ /^(....)-(..)-(..)$/;
     $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
     my $dayofyear_end = (localtime( $unix_ts ))[7];
     die if $dayofyear_end < $dayofyear_begin;
+    # For each day, set table to 1 for later lookup
     for ( $dayofyear_begin .. $dayofyear_end ) {
         $persons_holidays_table{$person}[$_] = 1;
     }
