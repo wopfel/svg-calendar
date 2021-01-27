@@ -192,51 +192,58 @@
 <text x='120' y='605'>23</text>
 <text class='nameofday dayofweek2' x='145' y='605'>Di</text>
 <line x1='120' y1='610' x2='225' y2='610' />
-<rect class='person_holiday_bs' x='120' y='611' width='105' height='23' />
+<rect class='person_holiday_bs' x='165' y='611' width='12' height='23' />
 <text x='120' y='630'>24</text>
 <text class='nameofday dayofweek3' x='145' y='630'>Mi</text>
 <line x1='120' y1='635' x2='225' y2='635' />
-<rect class='person_holiday_bs' x='120' y='636' width='105' height='23' />
+<rect class='person_holiday_bs' x='165' y='636' width='12' height='23' />
 <text x='120' y='655'>25</text>
 <text class='nameofday dayofweek4' x='145' y='655'>Do</text>
 <line x1='120' y1='660' x2='225' y2='660' />
-<rect class='person_holiday_bs' x='120' y='661' width='105' height='23' />
+<rect class='person_holiday_bs' x='165' y='661' width='12' height='23' />
 <text x='120' y='680'>26</text>
 <text class='nameofday dayofweek5' x='145' y='680'>Fr</text>
 <line x1='120' y1='685' x2='225' y2='685' />
-<rect class='person_holiday_bs' x='120' y='686' width='105' height='23' />
+<rect class='person_holiday_bs' x='165' y='686' width='12' height='23' />
 <text x='120' y='705'>27</text>
 <text class='nameofday dayofweek6' x='145' y='705'>Sa</text>
 <line x1='120' y1='710' x2='225' y2='710' />
-<rect class='person_holiday_bs' x='120' y='711' width='105' height='23' />
+<rect class='person_holiday_bs' x='165' y='711' width='12' height='23' />
 <text x='120' y='730'>28</text>
 <text class='nameofday dayofweek0' x='145' y='730'>So</text>
 <line x1='120' y1='735' x2='225' y2='735' />
 <text class='monthname' x='230' y='25'>Mär</text>
-<rect class='person_holiday_bs' x='230' y='36' width='105' height='23' />
+<rect class='person_holiday_bs' x='275' y='36' width='12' height='23' />
 <text x='230' y='55'>1</text>
 <text class='nameofday dayofweek1' x='255' y='55'>Mo</text>
 <line x1='230' y1='60' x2='335' y2='60' />
-<rect class='person_holiday_bs' x='230' y='61' width='105' height='23' />
+<rect class='person_holiday_th' x='290' y='61' width='12' height='23' />
+<rect class='person_holiday_bs' x='275' y='61' width='12' height='23' />
 <text x='230' y='80'>2</text>
 <text class='nameofday dayofweek2' x='255' y='80'>Di</text>
 <line x1='230' y1='85' x2='335' y2='85' />
-<rect class='person_holiday_bs' x='230' y='86' width='105' height='23' />
+<rect class='person_holiday_th' x='290' y='86' width='12' height='23' />
+<rect class='person_holiday_bs' x='275' y='86' width='12' height='23' />
 <text x='230' y='105'>3</text>
 <text class='nameofday dayofweek3' x='255' y='105'>Mi</text>
 <line x1='230' y1='110' x2='335' y2='110' />
+<rect class='person_holiday_th' x='290' y='111' width='12' height='23' />
 <text x='230' y='130'>4</text>
 <text class='nameofday dayofweek4' x='255' y='130'>Do</text>
 <line x1='230' y1='135' x2='335' y2='135' />
+<rect class='person_holiday_th' x='290' y='136' width='12' height='23' />
 <text x='230' y='155'>5</text>
 <text class='nameofday dayofweek5' x='255' y='155'>Fr</text>
 <line x1='230' y1='160' x2='335' y2='160' />
+<rect class='person_holiday_th' x='290' y='161' width='12' height='23' />
 <text x='230' y='180'>6</text>
 <text class='nameofday dayofweek6' x='255' y='180'>Sa</text>
 <line x1='230' y1='185' x2='335' y2='185' />
+<rect class='person_holiday_th' x='290' y='186' width='12' height='23' />
 <text x='230' y='205'>7</text>
 <text class='nameofday dayofweek0' x='255' y='205'>So</text>
 <line x1='230' y1='210' x2='335' y2='210' />
+<rect class='person_holiday_th' x='290' y='211' width='12' height='23' />
 <text x='230' y='230'>8</text>
 <text class='nameofday dayofweek1' x='255' y='230'>Mo</text>
 <line x1='230' y1='235' x2='335' y2='235' />
@@ -407,15 +414,12 @@
 <text x='450' y='80'>2</text>
 <text class='nameofday dayofweek0' x='475' y='80'>So</text>
 <line x1='450' y1='85' x2='555' y2='85' />
-<rect class='person_holiday_th' x='450' y='86' width='105' height='23' />
 <text x='450' y='105'>3</text>
 <text class='nameofday dayofweek1' x='475' y='105'>Mo</text>
 <line x1='450' y1='110' x2='555' y2='110' />
-<rect class='person_holiday_th' x='450' y='111' width='105' height='23' />
 <text x='450' y='130'>4</text>
 <text class='nameofday dayofweek2' x='475' y='130'>Di</text>
 <line x1='450' y1='135' x2='555' y2='135' />
-<rect class='person_holiday_th' x='450' y='136' width='105' height='23' />
 <text x='450' y='155'>5</text>
 <text class='nameofday dayofweek3' x='475' y='155'>Mi</text>
 <line x1='450' y1='160' x2='555' y2='160' />

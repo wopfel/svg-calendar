@@ -54,8 +54,13 @@ my %highlight_days = ( "2021-01-27" => "fill:rgb(255,200,200);",
 # Person's holidays
 # Format: name or id => from - to (yyyy-mm-dd)
 my %persons_holidays = ( "bs" => "2021-02-24 - 2021-03-03",
-                         "th" => "2021-05-03 - 2021-05-05",
+                         "th" => "2021-03-02 - 2021-03-08",
                        );
+
+# Used for holidays' highlighting to place markers side by side
+my %persons_index = ( "bs" => 1,
+                      "th" => 2,
+                    );
 
 # Calculate a table for each person, setting dayofyear to 1 if person is in holidays
 my %persons_holidays_table;
@@ -116,9 +121,10 @@ for my $month ( 1 .. 12 ) {
         # Check person's holidays
         for my $person ( keys %persons_holidays_table ) {
             if ( $persons_holidays_table{ $person }[$dayofyear] ) {
+                my $gap_to_left = $start_month_col_x + $persons_index{$person} * 15 + 30;
                 printf "<rect class='person_holiday_$person' x='%d' y='%d' width='%d' height='%d' />\n",
-                        $start_month_col_x, $day_y - 25 + 5 + 1,
-                        $month_w-$line_gap_w, 25 - 2;
+                        $gap_to_left, $day_y - 25 + 5 + 1,
+                        15 - 3, 25 - 2;
 
             }
         }
