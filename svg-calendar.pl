@@ -144,6 +144,7 @@ for my $month ( 1 .. 12 ) {
 
         # Check person's holidays
         for my $person ( keys %persons_holidays_table ) {
+            die unless exists $persons_index{$person};
             if ( $persons_holidays_table{ $person }[$dayofyear] ) {
                 # Calculate positions
                 my $box_gap_w = 3;  # Gap to next box
