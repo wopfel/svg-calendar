@@ -89,6 +89,7 @@ for my $person ( keys %persons_holidays ) {
 my $start_month_names_y = 25;
 my $start_days_of_month_y = $start_month_names_y + 5;
 my $month_w = 110;
+my $day_step_h = 25;  # Day step height
 
 for my $month ( 1 .. 12 ) {
     my $start_month_col_x = 10+$month_w*($month-1);
@@ -102,7 +103,7 @@ for my $month ( 1 .. 12 ) {
     for my $day ( 1 .. $days_this_month ) {
 
         # Calculate positions
-        my $day_y = $start_days_of_month_y + 25 * $day;
+        my $day_y = $start_days_of_month_y + $day_step_h * $day;
         my $line_gap_w = 5;
         # Calculate day properties
         my $unix_ts = POSIX::mktime( 0, 0, 0,  $day, $month-1, $year-1900 );
@@ -113,18 +114,23 @@ for my $month ( 1 .. 12 ) {
         my $ymd = sprintf "%04d-%02d-%02d", $year, $month, $day;
         if ( exists $highlight_days{$ymd} ) {
             printf "<rect x='%d' y='%d' width='%d' height='%d' style='%s' />\n",
-                    $start_month_col_x, $day_y - 25 + 5 + 1,
-                    $month_w-$line_gap_w, 25 - 2,
+                    $start_month_col_x, $day_y - $day_step_h + 5 + 1,
+                    $month_w-$line_gap_w, $day_step_h - 2,
                     $highlight_days{$ymd};
         }
 
         # Check person's holidays
         for my $person ( keys %persons_holidays_table ) {
             if ( $persons_holidays_table{ $person }[$dayofyear] ) {
-                my $gap_to_left = $start_month_col_x + $persons_index{$person} * 15 + 30;
+                # Calculate positions
+                my $box_gap_w = 3;  # Gap to next box
+                my $box_step_w = 15;  # Box step width
+                my $box_w = $box_step_w - $box_gap_w;  # Width of box
+                my $gap_to_left = $start_month_col_x + $persons_index{$person} * $box_step_w + 30;
+                # Show box
                 printf "<rect class='person_holiday_$person' x='%d' y='%d' width='%d' height='%d' />\n",
-                        $gap_to_left, $day_y - 25 + 5 + 1,
-                        15 - 3, 25 - 2;
+                        $gap_to_left, $day_y - $day_step_h + 5 + 1,
+                        $box_w, $day_step_h - 2;
 
             }
         }
