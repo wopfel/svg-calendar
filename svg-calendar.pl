@@ -39,6 +39,12 @@ print "  <style type='text/css'>
 my @month_text = qw/ Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez /;
 my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
 
+# Highlight days
+# Format: yyyy-mm-dd => #rgb
+my %highlight_days = ( "2021-01-27" => "fill:rgb(255,200,200);",
+                       "2021-12-24" => "fill:rgb(200,200,255); stroke-width:1; stroke:rgb(0,0,0);",
+                     );
+
 my $start_month_names_y = 25;
 my $start_days_of_month_y = $start_month_names_y + 5;
 my $month_w = 110;
@@ -60,6 +66,15 @@ for my $month ( 1 .. 12 ) {
         # Calculate day properties
         my $unix_ts = POSIX::mktime( 0, 0, 0,  $day, $month-1, $year-1900 );
         my $dayofweek = (localtime( $unix_ts ))[6];
+
+        # Hightlight day?
+        my $ymd = sprintf "%04d-%02d-%02d", $year, $month, $day;
+        if ( exists $highlight_days{$ymd} ) {
+            printf "<rect x='%d' y='%d' width='%d' height='%d' style='%s' />\n",
+                    $start_month_col_x, $day_y - 25 + 5 + 1,
+                    $month_w-$line_gap_w, 25 - 2,
+                    $highlight_days{$ymd};
+        }
 
         # Day (1, 2, ...)
         printf "<text x='%d' y='%d'>%d</text>\n", $start_month_col_x, $day_y, $day;
