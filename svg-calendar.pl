@@ -54,6 +54,7 @@ my %highlight_days = ( "2021-01-27" => "fill:rgb(255,200,200);",
 # Used for holidays' highlighting to place markers side by side
 my %persons_index = ( "bs" => 1,
                       "th" => 2,
+                      "bud" => 3,
                     );
 
 # Person's holidays
@@ -66,6 +67,8 @@ my $holiday_data = "
 2021-02-24 - 2021-03-03
 [th]
 2021-03-02 - 2021-03-08
+[bud]
+2021-03-08 - 2021-03-21
 ";
 
 # Calculate a table for each person, setting dayofyear to 1 if person is in holidays
