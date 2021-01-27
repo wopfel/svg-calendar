@@ -78,6 +78,8 @@ for ( split /\n/, $holiday_data ) {
         my $from = $1;
         my $to = $2;
         my ( $y, $m, $d );
+        # Check if a person was set
+        die unless $current_person;
         # Calculate beginning of holidays
         ( $y, $m, $d ) = $from =~ /^(....)-(..)-(..)$/;
         my $unix_ts;
@@ -100,6 +102,8 @@ for ( split /\n/, $holiday_data ) {
         my $y = $1;
         my $m = $2;
         my $d = $3;
+        # Check if a person was set
+        die unless $current_person;
         # Calculate date of holiday
         my $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
         my $dayofyear = (localtime( $unix_ts ))[7];
