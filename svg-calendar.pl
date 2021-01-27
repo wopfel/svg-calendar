@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+use POSIX;
 
 
 my $year = 2021;
@@ -21,6 +22,9 @@ print "  <style type='text/css'>
       text.monthname {
           font-size: 150%;
       }
+      text.nameofday {
+          font-size: 50%;
+      }
       line {
           stroke:rgb(150, 150, 150);
           stroke-width: 1px;
@@ -30,6 +34,7 @@ print "  <style type='text/css'>
 ";
 
 my @month_text = qw/ Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez /;
+my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
 
 my $start_month_names_y = 25;
 my $start_days_of_month_y = $start_month_names_y + 5;
@@ -46,8 +51,12 @@ for my $month ( 1 .. 12 ) {
 
     for my $day ( 1 .. $days_this_month ) {
 
+        my $unix_ts = POSIX::mktime( 0, 0, 0,  $day, $month-1, $year-1900 );
         my $day_y = $start_days_of_month_y + 25 * $day;
+        my $dayofweek = (localtime( $unix_ts ))[6];
+
         printf "<text x='%d' y='%d'>%d</text>\n", $start_month_col_x, $day_y, $day;
+        printf "<text class='nameofday' x='%d' y='%d'>%s</text>\n", $start_month_col_x + 25, $day_y, $dayofweek_text[$dayofweek];
         printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y+5, $start_month_col_x + $month_w, $day_y+5;
 
     }
