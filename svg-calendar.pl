@@ -60,8 +60,11 @@ for my $month ( 1 .. 12 ) {
         my $unix_ts = POSIX::mktime( 0, 0, 0,  $day, $month-1, $year-1900 );
         my $dayofweek = (localtime( $unix_ts ))[6];
 
+        # Day (1, 2, ...)
         printf "<text x='%d' y='%d'>%d</text>\n", $start_month_col_x, $day_y, $day;
+        # Day of week
         printf "<text class='nameofday dayofweek%d' x='%d' y='%d'>%s</text>\n", $dayofweek, $start_month_col_x + 25, $day_y, $dayofweek_text[$dayofweek];
+        # Line below a cell
         printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y+5, $start_month_col_x + $month_w, $day_y+5;
 
     }
