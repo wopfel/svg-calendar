@@ -25,6 +25,9 @@ print "  <style type='text/css'>
       text.nameofday {
           font-size: 50%;
       }
+      text.dayofweek0 {
+          fill: red;
+      }
       line {
           stroke:rgb(150, 150, 150);
           stroke-width: 1px;
@@ -56,7 +59,7 @@ for my $month ( 1 .. 12 ) {
         my $dayofweek = (localtime( $unix_ts ))[6];
 
         printf "<text x='%d' y='%d'>%d</text>\n", $start_month_col_x, $day_y, $day;
-        printf "<text class='nameofday' x='%d' y='%d'>%s</text>\n", $start_month_col_x + 25, $day_y, $dayofweek_text[$dayofweek];
+        printf "<text class='nameofday dayofweek%d' x='%d' y='%d'>%s</text>\n", $dayofweek, $start_month_col_x + 25, $day_y, $dayofweek_text[$dayofweek];
         printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y+5, $start_month_col_x + $month_w, $day_y+5;
 
     }
