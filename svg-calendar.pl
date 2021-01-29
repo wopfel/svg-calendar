@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use POSIX;
+use POSIX qw(strftime);
 
 
 my $year = 2021;
@@ -173,6 +173,11 @@ for my $month ( 1 .. 12 ) {
         # Line below a cell
         printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y+5, $start_month_col_x + $month_w - $line_gap_w, $day_y+5;
 
+        # Show number of week on Mondays
+        if ( $dayofweek == 1 ) {
+            my $weeknumber = strftime "%V", localtime( $unix_ts );
+            printf "<text x='%d' y='%d' text-anchor='end'>%d</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $weeknumber;
+        }
     }
 }
 print "</svg>\n";

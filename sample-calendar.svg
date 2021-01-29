@@ -40,6 +40,7 @@
 <text x='10' y='130'>4</text>
 <text class='nameofday dayofweek1' x='35' y='130'>Mo</text>
 <line x1='10' y1='135' x2='115' y2='135' />
+<text x='115' y='130' text-anchor='end'>1</text>
 <text x='10' y='155'>5</text>
 <text class='nameofday dayofweek2' x='35' y='155'>Di</text>
 <line x1='10' y1='160' x2='115' y2='160' />
@@ -61,6 +62,7 @@
 <text x='10' y='305'>11</text>
 <text class='nameofday dayofweek1' x='35' y='305'>Mo</text>
 <line x1='10' y1='310' x2='115' y2='310' />
+<text x='115' y='305' text-anchor='end'>2</text>
 <text x='10' y='330'>12</text>
 <text class='nameofday dayofweek2' x='35' y='330'>Di</text>
 <line x1='10' y1='335' x2='115' y2='335' />
@@ -82,6 +84,7 @@
 <text x='10' y='480'>18</text>
 <text class='nameofday dayofweek1' x='35' y='480'>Mo</text>
 <line x1='10' y1='485' x2='115' y2='485' />
+<text x='115' y='480' text-anchor='end'>3</text>
 <text x='10' y='505'>19</text>
 <text class='nameofday dayofweek2' x='35' y='505'>Di</text>
 <line x1='10' y1='510' x2='115' y2='510' />
@@ -103,6 +106,7 @@
 <text x='10' y='655'>25</text>
 <text class='nameofday dayofweek1' x='35' y='655'>Mo</text>
 <line x1='10' y1='660' x2='115' y2='660' />
+<text x='115' y='655' text-anchor='end'>4</text>
 <text x='10' y='680'>26</text>
 <text class='nameofday dayofweek2' x='35' y='680'>Di</text>
 <line x1='10' y1='685' x2='115' y2='685' />
@@ -127,6 +131,7 @@
 <text x='120' y='55'>1</text>
 <text class='nameofday dayofweek1' x='145' y='55'>Mo</text>
 <line x1='120' y1='60' x2='225' y2='60' />
+<text x='225' y='55' text-anchor='end'>5</text>
 <text x='120' y='80'>2</text>
 <text class='nameofday dayofweek2' x='145' y='80'>Di</text>
 <line x1='120' y1='85' x2='225' y2='85' />
@@ -148,6 +153,7 @@
 <text x='120' y='230'>8</text>
 <text class='nameofday dayofweek1' x='145' y='230'>Mo</text>
 <line x1='120' y1='235' x2='225' y2='235' />
+<text x='225' y='230' text-anchor='end'>6</text>
 <text x='120' y='255'>9</text>
 <text class='nameofday dayofweek2' x='145' y='255'>Di</text>
 <line x1='120' y1='260' x2='225' y2='260' />
@@ -169,6 +175,7 @@
 <text x='120' y='405'>15</text>
 <text class='nameofday dayofweek1' x='145' y='405'>Mo</text>
 <line x1='120' y1='410' x2='225' y2='410' />
+<text x='225' y='405' text-anchor='end'>7</text>
 <text x='120' y='430'>16</text>
 <text class='nameofday dayofweek2' x='145' y='430'>Di</text>
 <line x1='120' y1='435' x2='225' y2='435' />
@@ -190,6 +197,7 @@
 <text x='120' y='580'>22</text>
 <text class='nameofday dayofweek1' x='145' y='580'>Mo</text>
 <line x1='120' y1='585' x2='225' y2='585' />
+<text x='225' y='580' text-anchor='end'>8</text>
 <text x='120' y='605'>23</text>
 <text class='nameofday dayofweek2' x='145' y='605'>Di</text>
 <line x1='120' y1='610' x2='225' y2='610' />
@@ -218,6 +226,7 @@
 <text x='230' y='55'>1</text>
 <text class='nameofday dayofweek1' x='255' y='55'>Mo</text>
 <line x1='230' y1='60' x2='335' y2='60' />
+<text x='335' y='55' text-anchor='end'>9</text>
 <rect class='person_holiday_bs' x='275' y='61' width='12' height='23' />
 <rect class='person_holiday_th' x='290' y='61' width='12' height='23' />
 <text x='230' y='80'>2</text>
@@ -249,6 +258,7 @@
 <text x='230' y='230'>8</text>
 <text class='nameofday dayofweek1' x='255' y='230'>Mo</text>
 <line x1='230' y1='235' x2='335' y2='235' />
+<text x='335' y='230' text-anchor='end'>10</text>
 <rect class='person_holiday_bud' x='305' y='236' width='12' height='23' />
 <text x='230' y='255'>9</text>
 <text class='nameofday dayofweek2' x='255' y='255'>Di</text>
@@ -277,6 +287,7 @@
 <text x='230' y='405'>15</text>
 <text class='nameofday dayofweek1' x='255' y='405'>Mo</text>
 <line x1='230' y1='410' x2='335' y2='410' />
+<text x='335' y='405' text-anchor='end'>11</text>
 <rect class='person_holiday_bud' x='305' y='411' width='12' height='23' />
 <text x='230' y='430'>16</text>
 <text class='nameofday dayofweek2' x='255' y='430'>Di</text>
@@ -304,6 +315,7 @@
 <text x='230' y='580'>22</text>
 <text class='nameofday dayofweek1' x='255' y='580'>Mo</text>
 <line x1='230' y1='585' x2='335' y2='585' />
+<text x='335' y='580' text-anchor='end'>12</text>
 <text x='230' y='605'>23</text>
 <text class='nameofday dayofweek2' x='255' y='605'>Di</text>
 <line x1='230' y1='610' x2='335' y2='610' />
@@ -325,6 +337,7 @@
 <text x='230' y='755'>29</text>
 <text class='nameofday dayofweek1' x='255' y='755'>Mo</text>
 <line x1='230' y1='760' x2='335' y2='760' />
+<text x='335' y='755' text-anchor='end'>13</text>
 <text x='230' y='780'>30</text>
 <text class='nameofday dayofweek2' x='255' y='780'>Di</text>
 <line x1='230' y1='785' x2='335' y2='785' />
@@ -347,6 +360,7 @@
 <text x='340' y='155'>5</text>
 <text class='nameofday dayofweek1' x='365' y='155'>Mo</text>
 <line x1='340' y1='160' x2='445' y2='160' />
+<text x='445' y='155' text-anchor='end'>14</text>
 <text x='340' y='180'>6</text>
 <text class='nameofday dayofweek2' x='365' y='180'>Di</text>
 <line x1='340' y1='185' x2='445' y2='185' />
@@ -368,6 +382,7 @@
 <text x='340' y='330'>12</text>
 <text class='nameofday dayofweek1' x='365' y='330'>Mo</text>
 <line x1='340' y1='335' x2='445' y2='335' />
+<text x='445' y='330' text-anchor='end'>15</text>
 <text x='340' y='355'>13</text>
 <text class='nameofday dayofweek2' x='365' y='355'>Di</text>
 <line x1='340' y1='360' x2='445' y2='360' />
@@ -389,6 +404,7 @@
 <text x='340' y='505'>19</text>
 <text class='nameofday dayofweek1' x='365' y='505'>Mo</text>
 <line x1='340' y1='510' x2='445' y2='510' />
+<text x='445' y='505' text-anchor='end'>16</text>
 <text x='340' y='530'>20</text>
 <text class='nameofday dayofweek2' x='365' y='530'>Di</text>
 <line x1='340' y1='535' x2='445' y2='535' />
@@ -410,6 +426,7 @@
 <text x='340' y='680'>26</text>
 <text class='nameofday dayofweek1' x='365' y='680'>Mo</text>
 <line x1='340' y1='685' x2='445' y2='685' />
+<text x='445' y='680' text-anchor='end'>17</text>
 <text x='340' y='705'>27</text>
 <text class='nameofday dayofweek2' x='365' y='705'>Di</text>
 <line x1='340' y1='710' x2='445' y2='710' />
@@ -432,6 +449,7 @@
 <text x='450' y='105'>3</text>
 <text class='nameofday dayofweek1' x='475' y='105'>Mo</text>
 <line x1='450' y1='110' x2='555' y2='110' />
+<text x='555' y='105' text-anchor='end'>18</text>
 <text x='450' y='130'>4</text>
 <text class='nameofday dayofweek2' x='475' y='130'>Di</text>
 <line x1='450' y1='135' x2='555' y2='135' />
@@ -453,6 +471,7 @@
 <text x='450' y='280'>10</text>
 <text class='nameofday dayofweek1' x='475' y='280'>Mo</text>
 <line x1='450' y1='285' x2='555' y2='285' />
+<text x='555' y='280' text-anchor='end'>19</text>
 <text x='450' y='305'>11</text>
 <text class='nameofday dayofweek2' x='475' y='305'>Di</text>
 <line x1='450' y1='310' x2='555' y2='310' />
@@ -474,6 +493,7 @@
 <text x='450' y='455'>17</text>
 <text class='nameofday dayofweek1' x='475' y='455'>Mo</text>
 <line x1='450' y1='460' x2='555' y2='460' />
+<text x='555' y='455' text-anchor='end'>20</text>
 <text x='450' y='480'>18</text>
 <text class='nameofday dayofweek2' x='475' y='480'>Di</text>
 <line x1='450' y1='485' x2='555' y2='485' />
@@ -495,6 +515,7 @@
 <text x='450' y='630'>24</text>
 <text class='nameofday dayofweek1' x='475' y='630'>Mo</text>
 <line x1='450' y1='635' x2='555' y2='635' />
+<text x='555' y='630' text-anchor='end'>21</text>
 <text x='450' y='655'>25</text>
 <text class='nameofday dayofweek2' x='475' y='655'>Di</text>
 <line x1='450' y1='660' x2='555' y2='660' />
@@ -516,6 +537,7 @@
 <text x='450' y='805'>31</text>
 <text class='nameofday dayofweek1' x='475' y='805'>Mo</text>
 <line x1='450' y1='810' x2='555' y2='810' />
+<text x='555' y='805' text-anchor='end'>22</text>
 <text class='monthname' x='560' y='25'>Jun</text>
 <text x='560' y='55'>1</text>
 <text class='nameofday dayofweek2' x='585' y='55'>Di</text>
@@ -538,6 +560,7 @@
 <text x='560' y='205'>7</text>
 <text class='nameofday dayofweek1' x='585' y='205'>Mo</text>
 <line x1='560' y1='210' x2='665' y2='210' />
+<text x='665' y='205' text-anchor='end'>23</text>
 <text x='560' y='230'>8</text>
 <text class='nameofday dayofweek2' x='585' y='230'>Di</text>
 <line x1='560' y1='235' x2='665' y2='235' />
@@ -559,6 +582,7 @@
 <text x='560' y='380'>14</text>
 <text class='nameofday dayofweek1' x='585' y='380'>Mo</text>
 <line x1='560' y1='385' x2='665' y2='385' />
+<text x='665' y='380' text-anchor='end'>24</text>
 <text x='560' y='405'>15</text>
 <text class='nameofday dayofweek2' x='585' y='405'>Di</text>
 <line x1='560' y1='410' x2='665' y2='410' />
@@ -580,6 +604,7 @@
 <text x='560' y='555'>21</text>
 <text class='nameofday dayofweek1' x='585' y='555'>Mo</text>
 <line x1='560' y1='560' x2='665' y2='560' />
+<text x='665' y='555' text-anchor='end'>25</text>
 <text x='560' y='580'>22</text>
 <text class='nameofday dayofweek2' x='585' y='580'>Di</text>
 <line x1='560' y1='585' x2='665' y2='585' />
@@ -601,6 +626,7 @@
 <text x='560' y='730'>28</text>
 <text class='nameofday dayofweek1' x='585' y='730'>Mo</text>
 <line x1='560' y1='735' x2='665' y2='735' />
+<text x='665' y='730' text-anchor='end'>26</text>
 <text x='560' y='755'>29</text>
 <text class='nameofday dayofweek2' x='585' y='755'>Di</text>
 <line x1='560' y1='760' x2='665' y2='760' />
@@ -623,6 +649,7 @@
 <text x='670' y='155'>5</text>
 <text class='nameofday dayofweek1' x='695' y='155'>Mo</text>
 <line x1='670' y1='160' x2='775' y2='160' />
+<text x='775' y='155' text-anchor='end'>27</text>
 <text x='670' y='180'>6</text>
 <text class='nameofday dayofweek2' x='695' y='180'>Di</text>
 <line x1='670' y1='185' x2='775' y2='185' />
@@ -644,6 +671,7 @@
 <text x='670' y='330'>12</text>
 <text class='nameofday dayofweek1' x='695' y='330'>Mo</text>
 <line x1='670' y1='335' x2='775' y2='335' />
+<text x='775' y='330' text-anchor='end'>28</text>
 <text x='670' y='355'>13</text>
 <text class='nameofday dayofweek2' x='695' y='355'>Di</text>
 <line x1='670' y1='360' x2='775' y2='360' />
@@ -665,6 +693,7 @@
 <text x='670' y='505'>19</text>
 <text class='nameofday dayofweek1' x='695' y='505'>Mo</text>
 <line x1='670' y1='510' x2='775' y2='510' />
+<text x='775' y='505' text-anchor='end'>29</text>
 <text x='670' y='530'>20</text>
 <text class='nameofday dayofweek2' x='695' y='530'>Di</text>
 <line x1='670' y1='535' x2='775' y2='535' />
@@ -686,6 +715,7 @@
 <text x='670' y='680'>26</text>
 <text class='nameofday dayofweek1' x='695' y='680'>Mo</text>
 <line x1='670' y1='685' x2='775' y2='685' />
+<text x='775' y='680' text-anchor='end'>30</text>
 <text x='670' y='705'>27</text>
 <text class='nameofday dayofweek2' x='695' y='705'>Di</text>
 <line x1='670' y1='710' x2='775' y2='710' />
@@ -708,6 +738,7 @@
 <text x='780' y='80'>2</text>
 <text class='nameofday dayofweek1' x='805' y='80'>Mo</text>
 <line x1='780' y1='85' x2='885' y2='85' />
+<text x='885' y='80' text-anchor='end'>31</text>
 <text x='780' y='105'>3</text>
 <text class='nameofday dayofweek2' x='805' y='105'>Di</text>
 <line x1='780' y1='110' x2='885' y2='110' />
@@ -729,6 +760,7 @@
 <text x='780' y='255'>9</text>
 <text class='nameofday dayofweek1' x='805' y='255'>Mo</text>
 <line x1='780' y1='260' x2='885' y2='260' />
+<text x='885' y='255' text-anchor='end'>32</text>
 <text x='780' y='280'>10</text>
 <text class='nameofday dayofweek2' x='805' y='280'>Di</text>
 <line x1='780' y1='285' x2='885' y2='285' />
@@ -750,6 +782,7 @@
 <text x='780' y='430'>16</text>
 <text class='nameofday dayofweek1' x='805' y='430'>Mo</text>
 <line x1='780' y1='435' x2='885' y2='435' />
+<text x='885' y='430' text-anchor='end'>33</text>
 <text x='780' y='455'>17</text>
 <text class='nameofday dayofweek2' x='805' y='455'>Di</text>
 <line x1='780' y1='460' x2='885' y2='460' />
@@ -771,6 +804,7 @@
 <text x='780' y='605'>23</text>
 <text class='nameofday dayofweek1' x='805' y='605'>Mo</text>
 <line x1='780' y1='610' x2='885' y2='610' />
+<text x='885' y='605' text-anchor='end'>34</text>
 <text x='780' y='630'>24</text>
 <text class='nameofday dayofweek2' x='805' y='630'>Di</text>
 <line x1='780' y1='635' x2='885' y2='635' />
@@ -792,6 +826,7 @@
 <text x='780' y='780'>30</text>
 <text class='nameofday dayofweek1' x='805' y='780'>Mo</text>
 <line x1='780' y1='785' x2='885' y2='785' />
+<text x='885' y='780' text-anchor='end'>35</text>
 <text x='780' y='805'>31</text>
 <text class='nameofday dayofweek2' x='805' y='805'>Di</text>
 <line x1='780' y1='810' x2='885' y2='810' />
@@ -814,6 +849,7 @@
 <text x='890' y='180'>6</text>
 <text class='nameofday dayofweek1' x='915' y='180'>Mo</text>
 <line x1='890' y1='185' x2='995' y2='185' />
+<text x='995' y='180' text-anchor='end'>36</text>
 <text x='890' y='205'>7</text>
 <text class='nameofday dayofweek2' x='915' y='205'>Di</text>
 <line x1='890' y1='210' x2='995' y2='210' />
@@ -835,6 +871,7 @@
 <text x='890' y='355'>13</text>
 <text class='nameofday dayofweek1' x='915' y='355'>Mo</text>
 <line x1='890' y1='360' x2='995' y2='360' />
+<text x='995' y='355' text-anchor='end'>37</text>
 <text x='890' y='380'>14</text>
 <text class='nameofday dayofweek2' x='915' y='380'>Di</text>
 <line x1='890' y1='385' x2='995' y2='385' />
@@ -856,6 +893,7 @@
 <text x='890' y='530'>20</text>
 <text class='nameofday dayofweek1' x='915' y='530'>Mo</text>
 <line x1='890' y1='535' x2='995' y2='535' />
+<text x='995' y='530' text-anchor='end'>38</text>
 <text x='890' y='555'>21</text>
 <text class='nameofday dayofweek2' x='915' y='555'>Di</text>
 <line x1='890' y1='560' x2='995' y2='560' />
@@ -877,6 +915,7 @@
 <text x='890' y='705'>27</text>
 <text class='nameofday dayofweek1' x='915' y='705'>Mo</text>
 <line x1='890' y1='710' x2='995' y2='710' />
+<text x='995' y='705' text-anchor='end'>39</text>
 <text x='890' y='730'>28</text>
 <text class='nameofday dayofweek2' x='915' y='730'>Di</text>
 <line x1='890' y1='735' x2='995' y2='735' />
@@ -899,6 +938,7 @@
 <text x='1000' y='130'>4</text>
 <text class='nameofday dayofweek1' x='1025' y='130'>Mo</text>
 <line x1='1000' y1='135' x2='1105' y2='135' />
+<text x='1105' y='130' text-anchor='end'>40</text>
 <text x='1000' y='155'>5</text>
 <text class='nameofday dayofweek2' x='1025' y='155'>Di</text>
 <line x1='1000' y1='160' x2='1105' y2='160' />
@@ -920,6 +960,7 @@
 <text x='1000' y='305'>11</text>
 <text class='nameofday dayofweek1' x='1025' y='305'>Mo</text>
 <line x1='1000' y1='310' x2='1105' y2='310' />
+<text x='1105' y='305' text-anchor='end'>41</text>
 <text x='1000' y='330'>12</text>
 <text class='nameofday dayofweek2' x='1025' y='330'>Di</text>
 <line x1='1000' y1='335' x2='1105' y2='335' />
@@ -941,6 +982,7 @@
 <text x='1000' y='480'>18</text>
 <text class='nameofday dayofweek1' x='1025' y='480'>Mo</text>
 <line x1='1000' y1='485' x2='1105' y2='485' />
+<text x='1105' y='480' text-anchor='end'>42</text>
 <text x='1000' y='505'>19</text>
 <text class='nameofday dayofweek2' x='1025' y='505'>Di</text>
 <line x1='1000' y1='510' x2='1105' y2='510' />
@@ -962,6 +1004,7 @@
 <text x='1000' y='655'>25</text>
 <text class='nameofday dayofweek1' x='1025' y='655'>Mo</text>
 <line x1='1000' y1='660' x2='1105' y2='660' />
+<text x='1105' y='655' text-anchor='end'>43</text>
 <text x='1000' y='680'>26</text>
 <text class='nameofday dayofweek2' x='1025' y='680'>Di</text>
 <line x1='1000' y1='685' x2='1105' y2='685' />
@@ -984,6 +1027,7 @@
 <text x='1110' y='55'>1</text>
 <text class='nameofday dayofweek1' x='1135' y='55'>Mo</text>
 <line x1='1110' y1='60' x2='1215' y2='60' />
+<text x='1215' y='55' text-anchor='end'>44</text>
 <text x='1110' y='80'>2</text>
 <text class='nameofday dayofweek2' x='1135' y='80'>Di</text>
 <line x1='1110' y1='85' x2='1215' y2='85' />
@@ -1005,6 +1049,7 @@
 <text x='1110' y='230'>8</text>
 <text class='nameofday dayofweek1' x='1135' y='230'>Mo</text>
 <line x1='1110' y1='235' x2='1215' y2='235' />
+<text x='1215' y='230' text-anchor='end'>45</text>
 <text x='1110' y='255'>9</text>
 <text class='nameofday dayofweek2' x='1135' y='255'>Di</text>
 <line x1='1110' y1='260' x2='1215' y2='260' />
@@ -1026,6 +1071,7 @@
 <text x='1110' y='405'>15</text>
 <text class='nameofday dayofweek1' x='1135' y='405'>Mo</text>
 <line x1='1110' y1='410' x2='1215' y2='410' />
+<text x='1215' y='405' text-anchor='end'>46</text>
 <text x='1110' y='430'>16</text>
 <text class='nameofday dayofweek2' x='1135' y='430'>Di</text>
 <line x1='1110' y1='435' x2='1215' y2='435' />
@@ -1047,6 +1093,7 @@
 <text x='1110' y='580'>22</text>
 <text class='nameofday dayofweek1' x='1135' y='580'>Mo</text>
 <line x1='1110' y1='585' x2='1215' y2='585' />
+<text x='1215' y='580' text-anchor='end'>47</text>
 <text x='1110' y='605'>23</text>
 <text class='nameofday dayofweek2' x='1135' y='605'>Di</text>
 <line x1='1110' y1='610' x2='1215' y2='610' />
@@ -1068,6 +1115,7 @@
 <text x='1110' y='755'>29</text>
 <text class='nameofday dayofweek1' x='1135' y='755'>Mo</text>
 <line x1='1110' y1='760' x2='1215' y2='760' />
+<text x='1215' y='755' text-anchor='end'>48</text>
 <text x='1110' y='780'>30</text>
 <text class='nameofday dayofweek2' x='1135' y='780'>Di</text>
 <line x1='1110' y1='785' x2='1215' y2='785' />
@@ -1090,6 +1138,7 @@
 <text x='1220' y='180'>6</text>
 <text class='nameofday dayofweek1' x='1245' y='180'>Mo</text>
 <line x1='1220' y1='185' x2='1325' y2='185' />
+<text x='1325' y='180' text-anchor='end'>49</text>
 <text x='1220' y='205'>7</text>
 <text class='nameofday dayofweek2' x='1245' y='205'>Di</text>
 <line x1='1220' y1='210' x2='1325' y2='210' />
@@ -1111,6 +1160,7 @@
 <text x='1220' y='355'>13</text>
 <text class='nameofday dayofweek1' x='1245' y='355'>Mo</text>
 <line x1='1220' y1='360' x2='1325' y2='360' />
+<text x='1325' y='355' text-anchor='end'>50</text>
 <text x='1220' y='380'>14</text>
 <text class='nameofday dayofweek2' x='1245' y='380'>Di</text>
 <line x1='1220' y1='385' x2='1325' y2='385' />
@@ -1132,6 +1182,7 @@
 <text x='1220' y='530'>20</text>
 <text class='nameofday dayofweek1' x='1245' y='530'>Mo</text>
 <line x1='1220' y1='535' x2='1325' y2='535' />
+<text x='1325' y='530' text-anchor='end'>51</text>
 <text x='1220' y='555'>21</text>
 <text class='nameofday dayofweek2' x='1245' y='555'>Di</text>
 <line x1='1220' y1='560' x2='1325' y2='560' />
@@ -1154,6 +1205,7 @@
 <text x='1220' y='705'>27</text>
 <text class='nameofday dayofweek1' x='1245' y='705'>Mo</text>
 <line x1='1220' y1='710' x2='1325' y2='710' />
+<text x='1325' y='705' text-anchor='end'>52</text>
 <text x='1220' y='730'>28</text>
 <text class='nameofday dayofweek2' x='1245' y='730'>Di</text>
 <line x1='1220' y1='735' x2='1325' y2='735' />
