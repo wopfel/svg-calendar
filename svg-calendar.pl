@@ -32,6 +32,9 @@ print "  <style type='text/css'>
           stroke:rgb(150, 150, 150);
           stroke-width: 1px;
       }
+      text.weeknumber {
+          fill: #aaa;
+      }
       .person_holiday_bs {
           fill: rgb(150, 255, 150);
       }
@@ -176,7 +179,7 @@ for my $month ( 1 .. 12 ) {
         # Show number of week on Mondays
         if ( $dayofweek == 1 ) {
             my $weeknumber = strftime "%V", localtime( $unix_ts );
-            printf "<text x='%d' y='%d' text-anchor='end'>%d</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $weeknumber;
+            printf "<text class='weeknumber' x='%d' y='%d' text-anchor='end'>%d</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $weeknumber;
         }
     }
 }
