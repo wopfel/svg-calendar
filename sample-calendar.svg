@@ -244,8 +244,8 @@
 <text x='230' y='205'>7</text>
 <text class='nameofday dayofweek0' x='255' y='205'>So</text>
 <line x1='230' y1='210' x2='335' y2='210' />
-<rect class='person_holiday_th' x='290' y='211' width='12' height='23' />
 <rect class='person_holiday_bud' x='305' y='211' width='12' height='23' />
+<rect class='person_holiday_th' x='290' y='211' width='12' height='23' />
 <text x='230' y='230'>8</text>
 <text class='nameofday dayofweek1' x='255' y='230'>Mo</text>
 <line x1='230' y1='235' x2='335' y2='235' />
