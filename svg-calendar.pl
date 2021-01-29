@@ -158,7 +158,7 @@ for my $month ( 1 .. 12 ) {
             if ( $persons_holidays_table{ $person }[$dayofyear] ) {
                 # Calculate positions
                 my $box_gap_w = 3;  # Gap to next box
-                my $box_step_w = 15;  # Box step width
+                my $box_step_w = 10;  # Box step width
                 my $box_w = $box_step_w - $box_gap_w;  # Width of box
                 my $gap_to_left = $start_month_col_x + $persons_index{$person} * $box_step_w + 30;
                 # Show box
