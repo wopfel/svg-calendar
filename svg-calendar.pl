@@ -65,59 +65,56 @@ my %persons_index = ( "bs" => 1,
 # Person's holidays
 my %persons_holidays_table;
 
-# Planned for reading from file
-my $holiday_data = "
-[bs]
-2021-01-27
-2021-02-24 - 2021-03-03
-[th]
-2021-03-02 - 2021-03-08
-[bud]
-2021-03-08 - 2021-03-21
-";
-
 # Calculate a table for each person, setting dayofyear to 1 if person is in holidays
+my $holiday_data_filename = "holiday_data.txt";
 my $current_person;
-for ( split /\n/, $holiday_data ) {
-    $current_person = $1 and next  if  /^\[(.*)\]$/;
+if ( -e $holiday_data_filename ) {
 
-    # Range (from/to)
-    if ( /^(....-..-..) - (....-..-..)$/ ) {
-        my $from = $1;
-        my $to = $2;
-        my ( $y, $m, $d );
-        # Check if a person was set
-        die unless $current_person;
-        # Calculate beginning of holidays
-        ( $y, $m, $d ) = $from =~ /^(....)-(..)-(..)$/;
-        my $unix_ts;
-        $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-        my $dayofyear_begin = (localtime( $unix_ts ))[7];
-        # Calculate ending of holidays
-        ( $y, $m, $d ) = $to =~ /^(....)-(..)-(..)$/;
-        $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-        my $dayofyear_end = (localtime( $unix_ts ))[7];
-        die if $dayofyear_end < $dayofyear_begin;
-        # For each day, set table to 1 for later lookup
-        for ( $dayofyear_begin .. $dayofyear_end ) {
-            $persons_holidays_table{$current_person}[$_] = 1;
+    open my $fh, "<", $holiday_data_filename or die "Cannot open file '$holiday_data_filename'.";
+
+    while ( <$fh> ) {
+        $current_person = $1 and next  if  /^\[(.*)\]$/;
+
+        # Range (from/to)
+        if ( /^(....-..-..) - (....-..-..)$/ ) {
+            my $from = $1;
+            my $to = $2;
+            my ( $y, $m, $d );
+            # Check if a person was set
+            die unless $current_person;
+            # Calculate beginning of holidays
+            ( $y, $m, $d ) = $from =~ /^(....)-(..)-(..)$/;
+            my $unix_ts;
+            $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+            my $dayofyear_begin = (localtime( $unix_ts ))[7];
+            # Calculate ending of holidays
+            ( $y, $m, $d ) = $to =~ /^(....)-(..)-(..)$/;
+            $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+            my $dayofyear_end = (localtime( $unix_ts ))[7];
+            die if $dayofyear_end < $dayofyear_begin;
+            # For each day, set table to 1 for later lookup
+            for ( $dayofyear_begin .. $dayofyear_end ) {
+                $persons_holidays_table{$current_person}[$_] = 1;
+            }
+            next;
         }
-        next;
+
+        # Single day
+        if ( /^(....)-(..)-(..)$/ ) {
+            my $y = $1;
+            my $m = $2;
+            my $d = $3;
+            # Check if a person was set
+            die unless $current_person;
+            # Calculate date of holiday
+            my $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+            my $dayofyear = (localtime( $unix_ts ))[7];
+            $persons_holidays_table{$current_person}[$dayofyear] = 1;
+            next;
+        }
     }
 
-    # Single day
-    if ( /^(....)-(..)-(..)$/ ) {
-        my $y = $1;
-        my $m = $2;
-        my $d = $3;
-        # Check if a person was set
-        die unless $current_person;
-        # Calculate date of holiday
-        my $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-        my $dayofyear = (localtime( $unix_ts ))[7];
-        $persons_holidays_table{$current_person}[$dayofyear] = 1;
-        next;
-    }
+    close $fh;
 
 }
 
