@@ -84,11 +84,15 @@ if ( -e $holiday_data_filename ) {
             die unless $current_person;
             # Calculate beginning of holidays
             ( $y, $m, $d ) = $from =~ /^(....)-(..)-(..)$/;
+            # Check if year is correct
+            die "Wrong year" if $y != $year;
             my $unix_ts;
             $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
             my $dayofyear_begin = (localtime( $unix_ts ))[7];
             # Calculate ending of holidays
             ( $y, $m, $d ) = $to =~ /^(....)-(..)-(..)$/;
+            # Check if year is correct
+            die "Wrong year" if $y != $year;
             $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
             my $dayofyear_end = (localtime( $unix_ts ))[7];
             die if $dayofyear_end < $dayofyear_begin;
@@ -106,6 +110,8 @@ if ( -e $holiday_data_filename ) {
             my $d = $3;
             # Check if a person was set
             die unless $current_person;
+            # Check if year is correct
+            die "Wrong year" if $y != $year;
             # Calculate date of holiday
             my $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
             my $dayofyear = (localtime( $unix_ts ))[7];
