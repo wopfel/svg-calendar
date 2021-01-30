@@ -33,7 +33,9 @@ print "  <style type='text/css'>
           stroke-width: 1px;
       }
       text.weeknumber {
-          fill: #aaa;
+          fill: #ddd;
+          stroke: #ccc;
+          stroke-width: 0.3px;
       }
       .person_holiday_bs {
           fill: rgb(150, 255, 150);
