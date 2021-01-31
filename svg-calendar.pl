@@ -37,6 +37,9 @@ print "  <style type='text/css'>
           stroke: #ccc;
           stroke-width: 0.3px;
       }
+      text.weekmarker {
+          fill: #222;
+      }
       .person_holiday_bs {
           fill: rgb(150, 255, 150);
       }
@@ -124,6 +127,13 @@ if ( -e $holiday_data_filename ) {
 
 }
 
+my %weekmarkers = (  3 => "A",
+                    16 => "B",
+                    17 => "C",
+                    18 => "A",
+                  );
+
+
 my $start_month_names_y = 25;
 my $start_days_of_month_y = $start_month_names_y + 5;
 my $month_w = 110;
@@ -185,6 +195,16 @@ for my $month ( 1 .. 12 ) {
         if ( $dayofweek == 1 ) {
             my $weeknumber = strftime "%V", localtime( $unix_ts );
             printf "<text class='weeknumber' x='%d' y='%d' text-anchor='end'>%d</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $weeknumber;
+        }
+
+        # Show week markers on Wednesdays
+        if ( $dayofweek == 3 ) {
+            # Strip the leading zero of 1-digit week numbers
+            my $weeknumber = int strftime "%V", localtime( $unix_ts );
+            if ( exists $weekmarkers{ $weeknumber } ) {
+                my $marker = $weekmarkers{ $weeknumber };
+                printf "<text class='weekmarker' x='%d' y='%d' text-anchor='end'>%s</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $marker;
+            }
         }
     }
 }
