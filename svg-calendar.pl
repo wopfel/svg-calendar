@@ -127,11 +127,28 @@ if ( -e $holiday_data_filename ) {
 
 }
 
-my %weekmarkers = (  3 => "A",
-                    16 => "B",
-                    17 => "C",
-                    18 => "A",
-                  );
+#
+# Week marker stuff
+#
+
+my %weekmarkers;
+
+# Calculate a table for each person, setting dayofyear to 1 if person is in holidays
+my $weekmarkers_filename = "week_markers.txt";
+if ( -e $weekmarkers_filename ) {
+
+    open my $fh, "<", $weekmarkers_filename or die "Cannot open file '$holiday_data_filename'.";
+
+    while ( <$fh> ) {
+        if ( /(\d+)\s+(.*)$/ ) {
+            $weekmarkers{ $1 } = $2;
+        }
+    }
+
+    close $fh;
+
+}
+
 
 
 my $start_month_names_y = 25;
