@@ -8,3 +8,7 @@ Create .svg file by running
 Open file in a browser.
 
 See sample output in file `sample-calendar.svg`.
+
+For development:
+
+Run `while true ; do make ; sleep 1 ; done`
