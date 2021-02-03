@@ -82,6 +82,8 @@ if ( -e $holiday_data_filename ) {
 
         # Index (used for holidays' highlighting to place markers side by side)
         if ( /^index\s*=\s*(.*)$/ ) {
+            # Check if a person was set
+            die unless $current_person;
             $persons_index{ $current_person } = $1;
             next;
         }
