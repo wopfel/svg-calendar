@@ -136,7 +136,7 @@ my %weekmarkers;
 my $weekmarkers_filename = "week_markers.txt";
 if ( -e $weekmarkers_filename ) {
 
-    open my $fh, "<", $weekmarkers_filename or die "Cannot open file '$holiday_data_filename'.";
+    open my $fh, "<", $weekmarkers_filename or die "Cannot open file '$weekmarkers_filename'.";
 
     while ( <$fh> ) {
         if ( /(\d+)\s+(.*)$/ ) {
