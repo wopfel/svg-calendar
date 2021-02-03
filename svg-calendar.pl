@@ -252,7 +252,7 @@ for my $month ( 1 .. 12 ) {
         # Show day markers (if set)
         if ( exists $daymarkers{ $ymd } ) {
             my $marker = $daymarkers{ $ymd };
-            printf "<text class='daymarker' x='%d' y='%d' text-anchor='end'>%s</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $marker;
+            printf "<text class='daymarker' x='%d' y='%d' text-anchor='end'>%s</text>\n", $start_month_col_x + $month_w - $line_gap_w * 2, $day_y, $marker;
         }
     }
 }
