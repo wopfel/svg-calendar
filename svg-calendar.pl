@@ -133,7 +133,6 @@ if ( -e $holiday_data_filename ) {
 
 my %weekmarkers;
 
-# Calculate a table for each person, setting dayofyear to 1 if person is in holidays
 my $weekmarkers_filename = "week_markers.txt";
 if ( -e $weekmarkers_filename ) {
 
