@@ -148,6 +148,27 @@ if ( -e $weekmarkers_filename ) {
 
 }
 
+#
+# Day marker stuff
+#
+
+my %daymarkers;
+
+my $daymarkers_filename = "day_markers.txt";
+if ( -e $daymarkers_filename ) {
+
+    open my $fh, "<", $daymarkers_filename or die "Cannot open file '$daymarkers_filename'.";
+
+    while ( <$fh> ) {
+        if ( /(\d{4}-\d\d-\d\d)\s+(.*)$/ ) {
+            $daymarkers{ $1 } = $2;
+        }
+    }
+
+    close $fh;
+
+}
+
 
 
 my $start_month_names_y = 25;
@@ -221,6 +242,12 @@ for my $month ( 1 .. 12 ) {
                 my $marker = $weekmarkers{ $weeknumber };
                 printf "<text class='weekmarker' x='%d' y='%d' text-anchor='end'>%s</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $marker;
             }
+        }
+
+        # Show day markers (if set)
+        if ( exists $daymarkers{ $ymd } ) {
+            my $marker = $daymarkers{ $ymd };
+            printf "<text class='daymarker' x='%d' y='%d' text-anchor='end'>%s</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $marker;
         }
     }
 }
