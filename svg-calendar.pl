@@ -129,6 +129,9 @@ if ( -e $holiday_data_filename ) {
             $persons_holidays_table{$current_person}[$dayofyear] = 1;
             next;
         }
+
+        # Bail out if line cannot be parsed
+        die "Couldn't parse line '$_'";
     }
 
     close $fh;
