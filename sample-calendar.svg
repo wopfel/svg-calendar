@@ -27,6 +27,11 @@
       text.weekmarker {
           fill: #222;
       }
+      text.daymarker {
+          fill: #555;
+          font-size: 90%;
+          font-style: italic;
+      }
       .person_holiday_bs {
           fill: rgb(150, 255, 150);
       }
