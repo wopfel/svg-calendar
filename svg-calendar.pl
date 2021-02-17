@@ -242,17 +242,17 @@ for my $month ( 1 .. 12 ) {
         # Line below a cell
         printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y+5, $start_month_col_x + $month_w - $line_gap_w, $day_y+5;
 
+        # Get the week number (ISO 8601)
         my $timeobject = localtime( $unix_ts );
+        my $weeknumber = $timeobject->week;
+
         # Show number of week on Mondays
         if ( $dayofweek == 1 ) {
-            my $weeknumber = $timeobject->week;
             printf "<text class='weeknumber' x='%d' y='%d' text-anchor='end'>%d</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $weeknumber;
         }
 
         # Show week markers on Wednesdays
         if ( $dayofweek == 3 ) {
-            # Strip the leading zero of 1-digit week numbers
-            my $weeknumber = int $timeobject->week;
             if ( exists $weekmarkers{ $weeknumber } ) {
                 my $marker = $weekmarkers{ $weeknumber };
                 printf "<text class='weekmarker' x='%d' y='%d' text-anchor='end'>%s</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $marker;
