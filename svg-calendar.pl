@@ -2,7 +2,7 @@
 
 use strict;
 use warnings;
-use POSIX qw(strftime);
+use POSIX;
 use Time::Piece;
 
 

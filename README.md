@@ -19,4 +19,5 @@ Requirements
 
 The following perl libraries have to be installed:
 
+- POSIX
 - Time::Piece
