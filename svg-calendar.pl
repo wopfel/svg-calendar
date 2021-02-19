@@ -43,6 +43,9 @@ if ( -e $holiday_data_filename ) {
     while ( <$fh> ) {
         $current_person = $1 and next  if  /^\[(.*)\]$/;
 
+        # Ignore empty or comment lines
+        next if /^\s*$/ or /^;/;
+
         # Index (used for holidays' highlighting to place markers side by side)
         if ( /^index\s*=\s*(.*)$/ ) {
             # Check if a person was set
