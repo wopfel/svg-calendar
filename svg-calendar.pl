@@ -4,6 +4,7 @@ use strict;
 use warnings;
 use POSIX;
 use Time::Piece;
+use YAML::Tiny;
 
 
 my $year = 2021;
@@ -22,10 +23,8 @@ my @month_text = qw/ Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez /;
 my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
 
 # Highlight days
-# Format: yyyy-mm-dd => #rgb
-my %highlight_days = ( "2021-01-27" => "fill:rgb(255,200,200);",
-                       "2021-12-24" => "fill:rgb(200,200,255); stroke-width:1; stroke:rgb(0,0,0);",
-                     );
+my $highlight_days = YAML::Tiny->read( "highlight_days.yml" );
+die "Error in yml file 'highlight_days.yml'"  unless  $highlight_days;
 
 # Used for holidays' highlighting to place markers side by side
 my %persons_index = ();
@@ -178,11 +177,11 @@ for my $month ( 1 .. 12 ) {
 
         # Highlight day?
         my $ymd = sprintf "%04d-%02d-%02d", $year, $month, $day;
-        if ( exists $highlight_days{$ymd} ) {
+        if ( defined $highlight_days->[0]->{highlights}->{$ymd} ) {
             printf "<rect x='%d' y='%d' width='%d' height='%d' style='%s' />\n",
                     $start_month_col_x, $day_y - $day_step_h + 5 + 1,
                     $month_w-$line_gap_w, $day_step_h - 2,
-                    $highlight_days{$ymd};
+                    $highlight_days->[0]->{highlights}->{$ymd};
         }
 
         # Check person's holidays
