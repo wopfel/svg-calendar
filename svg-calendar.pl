@@ -31,6 +31,8 @@ my %highlight_days = ( "2021-01-27" => "fill:rgb(255,200,200);",
 my %persons_index = ();
 
 # Person's holidays
+# A hash of arrays:
+# $persons_holidays_table{<person name from [name] used in holiday_data.txt>}[<day of year>]: set to 1 if person is on holiday on this day
 my %persons_holidays_table;
 
 # Calculate a table for each person, setting dayofyear to 1 if person is in holidays
