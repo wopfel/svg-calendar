@@ -12,3 +12,11 @@ See sample output in file `sample-calendar.svg`.
 For development:
 
 Run `while true ; do make ; sleep 1 ; done`
+
+
+Requirements
+============
+
+The following perl libraries have to be installed:
+
+- Time::Piece
