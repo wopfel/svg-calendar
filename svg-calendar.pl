@@ -12,49 +12,11 @@ print '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 ';
 
-print '<svg height="1000" width="1400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+print '<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>
 ';
 
-print "  <style type='text/css'>
-    <![CDATA[
-      text {
-        font-family: Verdana, Arial, Helvetica, sans-serif;
-      }
-      text.monthname {
-          font-size: 150%;
-      }
-      text.nameofday {
-          font-size: 50%;
-      }
-      text.dayofweek0 {
-          fill: red;
-      }
-      line {
-          stroke:rgb(150, 150, 150);
-          stroke-width: 1px;
-      }
-      text.weeknumber {
-          fill: #ddd;
-          stroke: #ccc;
-          stroke-width: 0.3px;
-      }
-      text.weekmarker {
-          fill: #222;
-      }
-      text.daymarker {
-          fill: #555;
-          font-size: 90%;
-          font-style: italic;
-      }
-      .person_holiday_bs {
-          fill: rgb(150, 255, 150);
-      }
-      .person_holiday_th {
-          fill: rgb(150, 150, 255);
-      }
-    ]]>
-  </style>
-";
+print '<svg height="1000" width="1400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+';
 
 my @month_text = qw/ Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez /;
 my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;

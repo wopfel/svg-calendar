@@ -1,0 +1,35 @@
+text {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+text.monthname {
+    font-size: 150%;
+}
+text.nameofday {
+    font-size: 50%;
+}
+text.dayofweek0 {
+    fill: red;
+}
+line {
+    stroke:rgb(150, 150, 150);
+    stroke-width: 1px;
+}
+text.weeknumber {
+    fill: #ddd;
+    stroke: #ccc;
+    stroke-width: 0.3px;
+}
+text.weekmarker {
+    fill: #222;
+}
+text.daymarker {
+    fill: #555;
+    font-size: 90%;
+    font-style: italic;
+}
+.person_holiday_bs {
+    fill: rgb(150, 255, 150);
+}
+.person_holiday_th {
+    fill: rgb(150, 150, 255);
+}
