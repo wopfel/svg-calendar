@@ -1,5 +1,22 @@
 #!/bin/perl
 
+
+###################################################################
+#
+#   svg-calendar
+#
+###################################################################
+#
+#   A program which creates a calendar
+#
+#   https://github.com/wopfel/svg-calendar
+#
+#   Copyright (c) 2021 Bernd Arnold
+#   See LICENSE file for details
+#
+###################################################################
+
+
 use strict;
 use warnings;
 use POSIX;
