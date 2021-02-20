@@ -28,6 +28,16 @@ Sample
 See sample output in file `sample-calendar.svg`.
 
 
+File holiday_data.txt
+=====================
+
+The index value influences the vertical bar. The higher the index value is, the
+more the bar moves to the right. I think an index value greater 5 isn't suitable
+at the moment, otherwise the vertical bar overlaps the next month.
+
+![Holiday data](documentation/holiday_data.png)
+
+
 Developer hints
 ===============
 
