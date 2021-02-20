@@ -35,6 +35,10 @@ The index value influences the vertical bar. The higher the index value is, the
 more the bar moves to the right. I think an index value greater 5 isn't suitable
 at the moment, otherwise the vertical bar overlaps the next month.
 
+The color of the vertical bar can be changed in the CSS file. By default, the
+bar is black. Having a section `[bs]` in the TXT file, you can change the
+styling by setting `.person_holiday_bs` in the CSS file.
+
 ![Holiday data](documentation/holiday_data.png)
 
 
