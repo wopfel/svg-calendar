@@ -72,7 +72,7 @@ if ( -e $holiday_data_filename ) {
             next;
         }
 
-        # Range (from/to)
+        # Range (from/to), inluding year
         if ( /^(....-..-..) - (....-..-..)$/ ) {
             my $from = $1;
             my $to = $2;
@@ -100,11 +100,56 @@ if ( -e $holiday_data_filename ) {
             next;
         }
 
-        # Single day
+        # Range (from/to), omitting year
+        if ( /^(..-..) - (..-..)$/ ) {
+            my $from = $1;
+            my $to = $2;
+            my ( $y, $m, $d );
+            $y = $year;
+            # Check if a person was set
+            die unless $current_person;
+            # Calculate beginning of holidays
+            ( $m, $d ) = $from =~ /^(..)-(..)$/;
+            # Check if year is correct (doesn't harm if checked here too)
+            die "Wrong year" if $y != $year;
+            my $unix_ts;
+            $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+            my $dayofyear_begin = (localtime( $unix_ts ))[7];
+            # Calculate ending of holidays
+            ( $m, $d ) = $to =~ /^(..)-(..)$/;
+            # Check if year is correct (doesn't harm if checked here too)
+            die "Wrong year" if $y != $year;
+            $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+            my $dayofyear_end = (localtime( $unix_ts ))[7];
+            die if $dayofyear_end < $dayofyear_begin;
+            # For each day, set table to 1 for later lookup
+            for ( $dayofyear_begin .. $dayofyear_end ) {
+                $persons_holidays_table{$current_person}[$_] = 1;
+            }
+            next;
+        }
+
+        # Single day (format yyyy-mm-dd)
         if ( /^(....)-(..)-(..)$/ ) {
             my $y = $1;
             my $m = $2;
             my $d = $3;
+            # Check if a person was set
+            die unless $current_person;
+            # Check if year is correct
+            die "Wrong year" if $y != $year;
+            # Calculate date of holiday
+            my $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+            my $dayofyear = (localtime( $unix_ts ))[7];
+            $persons_holidays_table{$current_person}[$dayofyear] = 1;
+            next;
+        }
+
+        # Single day (format mm-dd, current year)
+        if ( /^(..)-(..)$/ ) {
+            my $y = $year;
+            my $m = $1;
+            my $d = $2;
             # Check if a person was set
             die unless $current_person;
             # Check if year is correct

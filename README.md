@@ -41,6 +41,13 @@ styling by setting `.person_holiday_bs` in the CSS file.
 
 ![Holiday data](documentation/holiday_data.png)
 
+Vacation can be specified using the following formats:
+
+- `yyyy-mm-dd - yyyy-mm-dd`: from (first day), to (last day)
+- `yyyy-mm-dd`: only on this day
+- `mm-dd - mm-dd`: from (first day), to (last day) omitting the year
+- `mm-dd`: only on this day, omitting the year
+
 
 Developer hints
 ===============
