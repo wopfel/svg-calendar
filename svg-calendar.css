@@ -27,6 +27,10 @@ text.daymarker {
     font-size: 90%;
     font-style: italic;
 }
+text.notation {
+    fill: #a22;
+    font-size: 90%;
+}
 .person_holiday_bs {
     fill: rgb(150, 255, 150);
 }

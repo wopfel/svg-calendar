@@ -216,6 +216,7 @@
 <text x='230' y='105'>3</text>
 <text class='nameofday dayofweek3' x='255' y='105'>Mi</text>
 <line x1='230' y1='110' x2='335' y2='110' />
+<text class='notation' x='285' y='105'>P</text>
 <rect class='person_holiday_th' x='280' y='111' width='7' height='23' />
 <text x='230' y='130'>4</text>
 <text class='nameofday dayofweek4' x='255' y='130'>Do</text>
@@ -530,6 +531,7 @@
 <text x='560' y='105'>3</text>
 <text class='nameofday dayofweek4' x='585' y='105'>Do</text>
 <line x1='560' y1='110' x2='665' y2='110' />
+<text class='notation' x='615' y='105'>x1</text>
 <text x='560' y='130'>4</text>
 <text class='nameofday dayofweek5' x='585' y='130'>Fr</text>
 <line x1='560' y1='135' x2='665' y2='135' />

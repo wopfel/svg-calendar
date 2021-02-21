@@ -292,6 +292,14 @@ for my $month ( 1 .. 12 ) {
             my $marker = $daymarkers{ $ymd };
             printf "<text class='daymarker' x='%d' y='%d' text-anchor='end'>%s</text>\n", $start_month_col_x + $month_w - $line_gap_w * 2, $day_y, $marker;
         }
+
+        # Notation?
+        if ( defined $highlight_days->[0]->{notations}->{$ymd} ) {
+            printf "<text class='notation' x='%d' y='%d'>%s</text>\n",
+                    $start_month_col_x + int( $month_w / 2),
+                    $day_y,
+                    $highlight_days->[0]->{notations}->{$ymd};
+        }
     }
 }
 print "</svg>\n";
