@@ -49,6 +49,14 @@ Vacation can be specified using the following formats:
 - `mm-dd`: only on this day, omitting the year
 
 
+File highlight_days.yml
+=======================
+
+You can format a day's cell using css code.
+
+![Highlight days](documentation/highlight_days.png)
+
+
 Developer hints
 ===============
 

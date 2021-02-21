@@ -619,6 +619,7 @@
 <text x='670' y='55'>1</text>
 <text class='nameofday dayofweek4' x='695' y='55'>Do</text>
 <line x1='670' y1='60' x2='775' y2='60' />
+<rect x='670' y='61' width='105' height='23' style='fill:rgb(255,200,200);' />
 <text x='670' y='80'>2</text>
 <text class='nameofday dayofweek5' x='695' y='80'>Fr</text>
 <line x1='670' y1='85' x2='775' y2='85' />
