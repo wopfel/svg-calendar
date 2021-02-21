@@ -302,4 +302,5 @@ for my $month ( 1 .. 12 ) {
         }
     }
 }
+
 print "</svg>\n";
