@@ -52,7 +52,7 @@ Vacation can be specified using the following formats:
 File highlight_days.yml
 =======================
 
-You can format a day's cell using css code.
+You can format a day's cell using css code, or you can add notations.
 
 ![Highlight days](documentation/highlight_days.png)
 
