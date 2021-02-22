@@ -10,6 +10,9 @@ text.nameofday {
 text.dayofweek0 {
     fill: red;
 }
+text.holiday {
+    fill: red;
+}
 line {
     stroke:rgb(150, 150, 150);
     stroke-width: 1px;

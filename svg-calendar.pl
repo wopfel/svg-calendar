@@ -43,6 +43,10 @@ my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
 my $highlight_days = YAML::Tiny->read( "highlight_days.yml" );
 die "Error in yml file 'highlight_days.yml'"  unless  $highlight_days;
 
+# Holidays
+my $holidays = YAML::Tiny->read( "holidays.yml" );
+die "Error in yml file 'holidays.yml'"  unless  $holidays;
+
 # Used for holidays' highlighting to place markers side by side
 my %persons_index = ();
 
@@ -266,7 +270,14 @@ for my $month ( 1 .. 12 ) {
         # Day (1, 2, ...)
         printf "<text x='%d' y='%d'>%d</text>\n", $start_month_col_x, $day_y, $day;
         # Day of week
-        printf "<text class='nameofday dayofweek%d' x='%d' y='%d'>%s</text>\n", $dayofweek, $start_month_col_x + 25, $day_y, $dayofweek_text[$dayofweek];
+        printf "<text class='%s' x='%d' y='%d'>%s</text>\n",
+               join( " ", grep length,
+                     "nameofday",
+                     "dayofweek$dayofweek",
+                     defined $holidays->[0]->{holidays}->{$ymd} ? "holiday" : ""
+                    ),
+               $start_month_col_x + 25, $day_y,
+               $dayofweek_text[$dayofweek];
         # Line below a cell
         printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y+5, $start_month_col_x + $month_w - $line_gap_w, $day_y+5;
 

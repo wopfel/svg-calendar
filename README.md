@@ -57,6 +57,15 @@ You can format a day's cell using css code, or you can add notations.
 ![Highlight days](documentation/highlight_days.png)
 
 
+File holidays.yml
+=================
+
+Defining (public) holidays. The weekday text is formatted using CSS
+`text.holiday`.
+
+![Holidays](documentation/holidays.png)
+
+
 Developer hints
 ===============
 
