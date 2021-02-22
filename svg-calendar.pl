@@ -39,7 +39,7 @@ print '<svg height="1000" width="1400" xmlns="http://www.w3.org/2000/svg" xmlns:
 my @month_text = qw/ Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez /;
 my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
 
-# Highlight days
+# Highlight days (also used for notations)
 my $highlight_days = YAML::Tiny->read( "highlight_days.yml" );
 die "Error in yml file 'highlight_days.yml'"  unless  $highlight_days;
 
