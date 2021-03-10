@@ -104,6 +104,35 @@ if ( -e $holiday_data_filename ) {
             next;
         }
 
+        # Range (from/to), inluding year in from data, omitting year in to data
+        if ( /^(....-..-..) - (..-..)$/ ) {
+            my $from = $1;
+            my $to = $2;
+            my ( $y, $m, $d );
+            # Check if a person was set
+            die unless $current_person;
+            # Calculate beginning of holidays
+            ( $y, $m, $d ) = $from =~ /^(....)-(..)-(..)$/;
+            # Check if year is correct
+            die "Wrong year" if $y != $year;
+            my $unix_ts;
+            $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+            my $dayofyear_begin = (localtime( $unix_ts ))[7];
+            # Calculate ending of holidays
+            ( $m, $d ) = $to =~ /^(..)-(..)$/;
+            $y = $year;
+            # Check if year is correct
+            die "Wrong year" if $y != $year;
+            $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+            my $dayofyear_end = (localtime( $unix_ts ))[7];
+            die if $dayofyear_end < $dayofyear_begin;
+            # For each day, set table to 1 for later lookup
+            for ( $dayofyear_begin .. $dayofyear_end ) {
+                $persons_holidays_table{$current_person}[$_] = 1;
+            }
+            next;
+        }
+
         # Range (from/to), omitting year
         if ( /^(..-..) - (..-..)$/ ) {
             my $from = $1;
