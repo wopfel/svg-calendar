@@ -40,6 +40,10 @@ my $margin_left = 10;
 my $line_gap_below = 5;  # Distance of the line below each day cell
 
 
+#
+# Print svg header infos
+#
+
 print '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 ';
@@ -47,24 +51,33 @@ print '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 print '<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>
 ';
 
+# Calculate width and height
 my $svg_width = $month_w * 12 + $margin_left;
 my $svg_height = $start_days_of_month_y + 31 * $day_step_h + $line_gap_below + 2;
 
 printf '<svg height="%d" width="%d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
 ', $svg_height, $svg_width;
 
+
+# Month names, and day-of-week names (DE)
 my @month_text = qw/ Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez /;
 my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
 
-# Highlight days (also used for notations)
+
+#
+# Read highlight days (also used for notations)
+#
+
 my $highlight_days = YAML::Tiny->read( "highlight_days.yml" );
 die "Error in yml file 'highlight_days.yml'"  unless  $highlight_days;
 
-# Holidays
+
+#
+# Read holidays
+#
+
 my $holidays = YAML::Tiny->read( "holidays.yml" );
 die "Error in yml file 'holidays.yml'"  unless  $holidays;
-
-
 
 
 #
@@ -117,7 +130,11 @@ if ( -e $daymarkers_filename ) {
 }
 
 
+#
+# Create calendar by printing svg elements
+#
 
+# Cycle through all months (January -> December)
 for my $month ( 1 .. 12 ) {
     my $start_month_col_x = $margin_left + $month_w*($month-1);
 
@@ -127,6 +144,7 @@ for my $month ( 1 .. 12 ) {
     $days_this_month = 30 if $month==4 or $month==6 or $month==9 or $month==11;
     $days_this_month = 28 if $month==2; #TODO
 
+    # Cycle through all days (1 -> 28/29/30/31)
     for my $day ( 1 .. $days_this_month ) {
 
         # Calculate positions
