@@ -12,7 +12,7 @@ Review the following files
 - week_markers.txt: place markers (example: place a "C" on 3rd week of this year)
 - day_markers.txt: place markers on single days
 - highlight_days.yml: format specific days using CSS (example: background color of Dec 24th)
-- holiday_data.txt: person's holidays
+- vacation.yml: person's vaction
 - svg-calendar.css: CSS definitions for the SVG file
 
 Create the .svg file by running
