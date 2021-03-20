@@ -1,4 +1,4 @@
-data_files = day_markers.txt highlight_days.yml holiday_data.txt holidays.yml \
+data_files = day_markers.txt highlight_days.yml vacation.yml holidays.yml \
              week_markers.txt
 
 sample-calendar.svg: svg-calendar.pl $(data_files)
