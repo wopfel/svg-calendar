@@ -74,7 +74,7 @@ print '<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>
 my $svg_width = $month_w * 12 + $margin_left;
 my $svg_height = $start_days_of_month_y + 31 * $day_step_h + $line_gap_below + 2;
 
-printf '<svg height="%d" width="%d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+printf '<svg height="%d" width="%d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
 ', $svg_height, $svg_width;
 
 
