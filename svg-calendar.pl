@@ -7,7 +7,7 @@
 #
 ###################################################################
 #
-#   A program which creates a calendar
+#   A program which creates a calendar in .svg file format
 #
 #   https://github.com/wopfel/svg-calendar
 #
