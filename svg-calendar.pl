@@ -47,9 +47,10 @@ print '<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>
 ';
 
 my $svg_width = $month_w * 12 + $margin_left;
+my $svg_height = $start_days_of_month_y + 31 * $day_step_h;
 
-printf '<svg height="1000" width="%d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
-', $svg_width;
+printf '<svg height="%d" width="%d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+', $svg_height, $svg_width;
 
 my @month_text = qw/ Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez /;
 my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
