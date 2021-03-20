@@ -41,6 +41,25 @@ my $line_gap_below = 5;  # Distance of the line below each day cell
 
 
 #
+# Sub: check if the given year is a leap year
+#
+# Parameter:
+# 1: year
+#
+
+sub isLeapYear {
+
+    my $year = shift;
+
+    return 0 if $year % 4;
+    return 1 if $year % 100;
+    return 0 if $year % 400;
+    return 1;
+
+}
+
+
+#
 # Print svg header infos
 #
 
@@ -142,7 +161,7 @@ for my $month ( 1 .. 12 ) {
 
     my $days_this_month = 31;
     $days_this_month = 30 if $month==4 or $month==6 or $month==9 or $month==11;
-    $days_this_month = 28 if $month==2; #TODO
+    $days_this_month = isLeapYear($year) ? 29 : 28 if $month==2;
 
     # Cycle through all days (1 -> 28/29/30/31)
     for my $day ( 1 .. $days_this_month ) {
