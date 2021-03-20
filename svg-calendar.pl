@@ -63,19 +63,19 @@ sub isLeapYear {
 # Print svg header infos
 #
 
-print '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-';
+print qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n};
+print qq{<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n};
 
-print '<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>
-';
+print qq{<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>\n};
 
 # Calculate width and height
 my $svg_width = $month_w * 12 + $margin_left;
 my $svg_height = $start_days_of_month_y + 31 * $day_step_h + $line_gap_below + 2;
 
-printf '<svg height="%d" width="%d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
-', $svg_height, $svg_width;
+printf qq{<svg height="%d" width="%d" xmlns="%s" xmlns:xlink="%s" xml:space="preserve">\n},
+    $svg_height, $svg_width,
+    "http://www.w3.org/2000/svg",
+    "http://www.w3.org/1999/xlink";
 
 
 # Month names, and day-of-week names (DE)
