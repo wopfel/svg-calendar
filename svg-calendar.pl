@@ -37,6 +37,7 @@ my $start_days_of_month_y = $start_month_names_y + 5;
 my $month_w = 110;
 my $day_step_h = 25;  # Day step height
 my $margin_left = 10;
+my $line_gap_below = 5;  # Distance of the line below each day cell
 
 
 print '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -47,7 +48,7 @@ print '<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>
 ';
 
 my $svg_width = $month_w * 12 + $margin_left;
-my $svg_height = $start_days_of_month_y + 31 * $day_step_h;
+my $svg_height = $start_days_of_month_y + 31 * $day_step_h + $line_gap_below + 2;
 
 printf '<svg height="%d" width="%d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
 ', $svg_height, $svg_width;
@@ -174,7 +175,7 @@ for my $month ( 1 .. 12 ) {
                $start_month_col_x + 25, $day_y,
                $dayofweek_text[$dayofweek];
         # Line below a cell
-        printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y+5, $start_month_col_x + $month_w - $line_gap_w, $day_y+5;
+        printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y + $line_gap_below, $start_month_col_x + $month_w - $line_gap_w, $day_y + $line_gap_below;
 
         # Get the week number (ISO 8601)
         my $timeobject = localtime( $unix_ts );
