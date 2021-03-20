@@ -30,6 +30,15 @@ use vacation;
 
 my $year = 2021;
 
+
+# Calendar size data
+my $start_month_names_y = 25;
+my $start_days_of_month_y = $start_month_names_y + 5;
+my $month_w = 110;
+my $day_step_h = 25;  # Day step height
+my $margin_left = 10;
+
+
 print '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 ';
@@ -37,8 +46,10 @@ print '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 print '<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>
 ';
 
-print '<svg height="1000" width="1400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
-';
+my $svg_width = $month_w * 12 + $margin_left;
+
+printf '<svg height="1000" width="%d" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/">
+', $svg_width;
 
 my @month_text = qw/ Jan Feb Mär Apr Mai Jun Jul Aug Sep Okt Nov Dez /;
 my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
@@ -105,13 +116,8 @@ if ( -e $daymarkers_filename ) {
 
 
 
-my $start_month_names_y = 25;
-my $start_days_of_month_y = $start_month_names_y + 5;
-my $month_w = 110;
-my $day_step_h = 25;  # Day step height
-
 for my $month ( 1 .. 12 ) {
-    my $start_month_col_x = 10+$month_w*($month-1);
+    my $start_month_col_x = $margin_left + $month_w*($month-1);
 
     printf "<text class='monthname' x='%d' y='%d'>%s</text>\n", $start_month_col_x, $start_month_names_y, $month_text[$month-1];
 
