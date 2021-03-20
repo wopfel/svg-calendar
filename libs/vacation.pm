@@ -16,6 +16,52 @@ our @EXPORT = qw( %persons_holidays_table %persons_index );
 
 
 #
+# Mark person's vacation in hash
+#
+# Parameter:
+# 1: Person's name
+# 2: Day of year
+#
+
+sub setVacation {
+
+    my ( $name, $dayofyear ) = @_;
+
+    $persons_holidays_table{$name}[$dayofyear] = 1;
+
+}
+
+
+#
+# Get day of year from yyyy-mm-dd
+#
+# Parameters:
+# 1: Year
+# 2: The date (formatted as yyyy-mm-dd)
+#
+
+sub getDayOfYear {
+
+    my ( $year, $ymd ) = @_;
+
+    die "Wrong ymd format for '$ymd'" unless $ymd =~ /^(....)-(..)-(..)$/;
+
+    my $y = $1;
+    my $m = $2;
+    my $d = $3;
+
+    # Check if year is correct
+    die "Wrong year passed in '$ymd'" if $y != $year;
+
+    my $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
+    my $dayofyear = (localtime( $unix_ts ))[7];
+
+    return $dayofyear;
+
+}
+
+
+#
 # Load vacation data from external file
 #
 
@@ -37,16 +83,9 @@ sub load {
         for my $timerange ( @{ $block->{times} } ) {
 
             # Single day (format yyyy-mm-dd)
-            if ( $timerange =~ /^(....)-(..)-(..)$/ ) {
-                my $y = $1;
-                my $m = $2;
-                my $d = $3;
-                # Check if year is correct
-                die "Wrong year" if $y != $year;
-                # Calculate date of holiday
-                my $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-                my $dayofyear = (localtime( $unix_ts ))[7];
-                $persons_holidays_table{$name}[$dayofyear] = 1;
+            if ( $timerange =~ /^....-..-..$/ ) {
+                my $dayofyear = getDayOfYear( $year, $timerange );
+                setVacation( $name, $dayofyear );
                 next;
             }
 
@@ -54,39 +93,20 @@ sub load {
             if ( $timerange =~ /^(....-..-..) - (....-..-..)$/ ) {
                 my $from = $1;
                 my $to = $2;
-                my ( $y, $m, $d );
-                # Calculate beginning of holidays
-                ( $y, $m, $d ) = $from =~ /^(....)-(..)-(..)$/;
-                # Check if year is correct
-                die "Wrong year" if $y != $year;
-                my $unix_ts;
-                $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-                my $dayofyear_begin = (localtime( $unix_ts ))[7];
-                # Calculate ending of holidays
-                ( $y, $m, $d ) = $to =~ /^(....)-(..)-(..)$/;
-                # Check if year is correct
-                die "Wrong year" if $y != $year;
-                $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-                my $dayofyear_end = (localtime( $unix_ts ))[7];
+                my $dayofyear_begin = getDayOfYear( $year, $from );
+                my $dayofyear_end = getDayOfYear( $year, $to );
                 die if $dayofyear_end < $dayofyear_begin;
-                # For each day, set table to 1 for later lookup
+                # For each day, mark person's table
                 for ( $dayofyear_begin .. $dayofyear_end ) {
-                    $persons_holidays_table{$name}[$_] = 1;
+                    setVacation( $name, $_ );
                 }
                 next;
             }
 
             # Single day (format mm-dd, current year)
             if ( $timerange =~ /^(..)-(..)$/ ) {
-                my $y = $year;
-                my $m = $1;
-                my $d = $2;
-                # Check if year is correct
-                die "Wrong year" if $y != $year;
-                # Calculate date of holiday
-                my $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-                my $dayofyear = (localtime( $unix_ts ))[7];
-                $persons_holidays_table{$name}[$dayofyear] = 1;
+                my $dayofyear = getDayOfYear( $year, "$year-$timerange" );
+                setVacation( $name, $dayofyear );
                 next;
             }
 
@@ -94,25 +114,12 @@ sub load {
             if ( $timerange =~ /^(..-..) - (..-..)$/ ) {
                 my $from = $1;
                 my $to = $2;
-                my ( $y, $m, $d );
-                $y = $year;
-                # Calculate beginning of holidays
-                ( $m, $d ) = $from =~ /^(..)-(..)$/;
-                # Check if year is correct (doesn't harm if checked here too)
-                die "Wrong year" if $y != $year;
-                my $unix_ts;
-                $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-                my $dayofyear_begin = (localtime( $unix_ts ))[7];
-                # Calculate ending of holidays
-                ( $m, $d ) = $to =~ /^(..)-(..)$/;
-                # Check if year is correct (doesn't harm if checked here too)
-                die "Wrong year" if $y != $year;
-                $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-                my $dayofyear_end = (localtime( $unix_ts ))[7];
+                my $dayofyear_begin = getDayOfYear( $year, "$year-$from" );
+                my $dayofyear_end = getDayOfYear( $year, "$year-$to" );
                 die if $dayofyear_end < $dayofyear_begin;
-                # For each day, set table to 1 for later lookup
+                # For each day, mark person's table
                 for ( $dayofyear_begin .. $dayofyear_end ) {
-                    $persons_holidays_table{$name}[$_] = 1;
+                    setVacation( $name, $_ );
                 }
                 next;
             }
@@ -121,25 +128,12 @@ sub load {
             if ( $timerange =~ /^(....-..-..) - (..-..)$/ ) {
                 my $from = $1;
                 my $to = $2;
-                my ( $y, $m, $d );
-                # Calculate beginning of holidays
-                ( $y, $m, $d ) = $from =~ /^(....)-(..)-(..)$/;
-                # Check if year is correct
-                die "Wrong year" if $y != $year;
-                my $unix_ts;
-                $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-                my $dayofyear_begin = (localtime( $unix_ts ))[7];
-                # Calculate ending of holidays
-                ( $m, $d ) = $to =~ /^(..)-(..)$/;
-                $y = $year;
-                # Check if year is correct
-                die "Wrong year" if $y != $year;
-                $unix_ts = POSIX::mktime( 0, 0, 0, $d, $m-1, $y-1900 );
-                my $dayofyear_end = (localtime( $unix_ts ))[7];
+                my $dayofyear_begin = getDayOfYear( $year, $from );
+                my $dayofyear_end = getDayOfYear( $year, "$year-$to" );
                 die if $dayofyear_end < $dayofyear_begin;
-                # For each day, set table to 1 for later lookup
+                # For each day, mark person's table
                 for ( $dayofyear_begin .. $dayofyear_end ) {
-                    $persons_holidays_table{$name}[$_] = 1;
+                    setVacation( $name, $_ );
                 }
                 next;
             }
