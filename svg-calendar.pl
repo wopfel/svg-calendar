@@ -199,7 +199,6 @@ for my $month ( 1 .. 12 ) {
                         "person_holiday_$person",
                         $gap_to_left, $day_y - $day_step_h + 5 + 1,
                         $box_w, $day_step_h - 2;
-
             }
         }
 
