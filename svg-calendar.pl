@@ -157,7 +157,8 @@ if ( -e $daymarkers_filename ) {
 for my $month ( 1 .. 12 ) {
     my $start_month_col_x = $margin_left + $month_w*($month-1);
 
-    printf "<text class='monthname' x='%d' y='%d'>%s</text>\n", $start_month_col_x, $start_month_names_y, $month_text[$month-1];
+    printf "<text class='monthname' x='%d' y='%d'>%s</text>\n",
+        $start_month_col_x, $start_month_names_y, $month_text[$month-1];
 
     my $days_this_month = 31;
     $days_this_month = 30 if $month==4 or $month==6 or $month==9 or $month==11;
@@ -191,9 +192,11 @@ for my $month ( 1 .. 12 ) {
                 my $box_gap_w = 3;  # Gap to next box
                 my $box_step_w = 10;  # Box step width
                 my $box_w = $box_step_w - $box_gap_w;  # Width of box
-                my $gap_to_left = $start_month_col_x + $persons_index{$person} * $box_step_w + 30;
+                my $gap_to_left = $start_month_col_x + 30
+                                  + $persons_index{$person} * $box_step_w;
                 # Show box
-                printf "<rect class='person_holiday_$person' x='%d' y='%d' width='%d' height='%d' />\n",
+                printf "<rect class='%s' x='%d' y='%d' width='%d' height='%d' />\n",
+                        "person_holiday_$person",
                         $gap_to_left, $day_y - $day_step_h + 5 + 1,
                         $box_w, $day_step_h - 2;
 
@@ -212,7 +215,9 @@ for my $month ( 1 .. 12 ) {
                $start_month_col_x + 25, $day_y,
                $dayofweek_text[$dayofweek];
         # Line below a cell
-        printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n", $start_month_col_x, $day_y + $line_gap_below, $start_month_col_x + $month_w - $line_gap_w, $day_y + $line_gap_below;
+        printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n",
+                $start_month_col_x, $day_y + $line_gap_below,
+                $start_month_col_x + $month_w - $line_gap_w, $day_y + $line_gap_below;
 
         # Get the week number (ISO 8601)
         my $timeobject = localtime( $unix_ts );
@@ -220,21 +225,24 @@ for my $month ( 1 .. 12 ) {
 
         # Show number of week on Mondays
         if ( $dayofweek == 1 ) {
-            printf "<text class='weeknumber' x='%d' y='%d' text-anchor='end'>%d</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $weeknumber;
+            printf "<text class='weeknumber' x='%d' y='%d' text-anchor='end'>%d</text>\n",
+                    $start_month_col_x + $month_w - $line_gap_w, $day_y, $weeknumber;
         }
 
         # Show week markers on Wednesdays
         if ( $dayofweek == 3 ) {
             if ( exists $weekmarkers{ $weeknumber } ) {
                 my $marker = $weekmarkers{ $weeknumber };
-                printf "<text class='weekmarker' x='%d' y='%d' text-anchor='end'>%s</text>\n", $start_month_col_x + $month_w - $line_gap_w, $day_y, $marker;
+                printf "<text class='weekmarker' x='%d' y='%d' text-anchor='end'>%s</text>\n",
+                        $start_month_col_x + $month_w - $line_gap_w, $day_y, $marker;
             }
         }
 
         # Show day markers (if set)
         if ( exists $daymarkers{ $ymd } ) {
             my $marker = $daymarkers{ $ymd };
-            printf "<text class='daymarker' x='%d' y='%d' text-anchor='end'>%s</text>\n", $start_month_col_x + $month_w - $line_gap_w * 2, $day_y, $marker;
+            printf "<text class='daymarker' x='%d' y='%d' text-anchor='end'>%s</text>\n",
+                    $start_month_col_x + $month_w - $line_gap_w * 2, $day_y, $marker;
         }
 
         # Notation?
