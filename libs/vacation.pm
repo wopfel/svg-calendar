@@ -64,6 +64,9 @@ sub getDayOfYear {
 #
 # Load vacation data from external file
 #
+# Parameter:
+# 1: Year
+#
 
 sub load {
 
