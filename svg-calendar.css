@@ -1,3 +1,7 @@
+/* This file is part of
+   https://github.com/wopfel/svg-calendar
+*/
+
 text {
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -7,12 +11,17 @@ text.monthname {
 text.nameofday {
     font-size: 50%;
 }
+/* Style of Sunday (0 is Sunday) */
 text.dayofweek0 {
     fill: red;
 }
+
+/* A (public) holiday */
 text.holiday {
     fill: red;
 }
+
+/* The line below each day cell */
 line {
     stroke:rgb(150, 150, 150);
     stroke-width: 1px;
@@ -22,6 +31,8 @@ text.weeknumber {
     stroke: #ccc;
     stroke-width: 0.3px;
 }
+
+/* The week and day markers, and the notations */
 text.weekmarker {
     fill: #222;
 }
@@ -34,6 +45,9 @@ text.notation {
     fill: #a22;
     font-size: 90%;
 }
+
+/* Style of each person's vacation bar */
+/* The suffix relates to the name: property in vacation.yml */
 .person_holiday_bs {
     fill: rgb(150, 255, 150);
 }
