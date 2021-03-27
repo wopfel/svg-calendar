@@ -2,24 +2,12 @@ name: linux
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches:
+      - main
 
 jobs:
-  perl:
-
+  check-perl:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        perl-version:
-          - '5.8'
-          - '5.10'
-          - '5.16'
-          - 'latest'
-
-    container:
-      image: perl:${{ matrix.perl-version }}
-
     steps:
       - uses: actions/checkout@v2
       - name: perl -V
