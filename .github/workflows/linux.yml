@@ -13,7 +13,7 @@ jobs:
       - uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: '5.32'
-      - name: perl -V
+      - name: show perl version
         run: perl -V
       - name: syntax check
         run: perl -c svg-calendar.pl
