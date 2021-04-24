@@ -33,7 +33,7 @@ my $year = 2021;
 
 # Calendar size data
 my $start_month_names_y = 25;
-my $start_days_of_month_y = $start_month_names_y + 5;
+my $start_days_of_month_y = 5;
 my $month_w = 110;
 my $day_step_h = 25;  # Day step height
 my $margin_left = 10;
@@ -70,7 +70,7 @@ print qq{<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>\n};
 
 # Calculate width and height
 my $svg_width = $month_w * 12 + $margin_left;
-my $svg_height = $start_days_of_month_y + 31 * $day_step_h + $line_gap_below + 2;
+my $svg_height = $start_month_names_y + $start_days_of_month_y + 31 * $day_step_h + $line_gap_below + 2;
 
 printf qq{<svg height="%d" width="%d" xmlns="%s" xmlns:xlink="%s" xml:space="preserve">\n},
     $svg_height, $svg_width,
@@ -157,8 +157,13 @@ if ( -e $daymarkers_filename ) {
 for my $month ( 1 .. 12 ) {
     my $start_month_col_x = $margin_left + $month_w*($month-1);
 
+    # Begin group
+    printf "<g transform='translate(%d,%d)'>\n",
+           $start_month_col_x,
+           $start_month_names_y;
+
     printf "<text class='monthname' x='%d' y='%d'>%s</text>\n",
-        $start_month_col_x, $start_month_names_y, $month_text[$month-1];
+        0, 0, $month_text[$month-1];
 
     my $days_this_month = 31;
     $days_this_month = 30 if $month==4 or $month==6 or $month==9 or $month==11;
@@ -177,7 +182,7 @@ for my $month ( 1 .. 12 ) {
 
         # Begin group
         printf "<g transform='translate(%d,%d)'>\n",
-               $start_month_col_x,
+               0,
                $day_y;
 
         # Highlight day?
@@ -259,6 +264,8 @@ for my $month ( 1 .. 12 ) {
         printf "</g>\n";
 
     }
+
+    printf "</g>\n";
 }
 
 print "</svg>\n";
