@@ -189,8 +189,6 @@ for my $month ( 1 .. 12 ) {
                     $highlight_days->[0]->{highlights}->{$ymd};
         }
 
-        printf "</g>\n";
-
         # Check person's holidays
         for my $person ( sort keys %persons_holidays_table ) {
             die unless exists $persons_index{$person};
@@ -199,18 +197,17 @@ for my $month ( 1 .. 12 ) {
                 my $box_gap_w = 3;  # Gap to next box
                 my $box_step_w = 10;  # Box step width
                 my $box_w = $box_step_w - $box_gap_w;  # Width of box
-                my $gap_to_left = $start_month_col_x + 30
-                                  + $persons_index{$person} * $box_step_w;
+                my $gap_to_left = 30 + $persons_index{$person} * $box_step_w;
                 # Show box
                 printf "<rect class='%s' x='%d' y='%d' width='%d' height='%d' />\n",
                         "person_holiday_$person",
-                        $gap_to_left, $day_y - $day_step_h + 5 + 1,
+                        $gap_to_left, 0 - $day_step_h + 5 + 1,
                         $box_w, $day_step_h - 2;
             }
         }
 
         # Day (1, 2, ...)
-        printf "<text x='%d' y='%d'>%d</text>\n", $start_month_col_x, $day_y, $day;
+        printf "<text x='%d' y='%d'>%d</text>\n", 0, 0, $day;
         # Day of week
         printf "<text class='%s' x='%d' y='%d'>%s</text>\n",
                join( " ", grep length,
@@ -218,12 +215,12 @@ for my $month ( 1 .. 12 ) {
                      "dayofweek$dayofweek",
                      defined $holidays->[0]->{holidays}->{$ymd} ? "holiday" : ""
                     ),
-               $start_month_col_x + 25, $day_y,
+               25, 0,
                $dayofweek_text[$dayofweek];
         # Line below a cell
         printf "<line x1='%d' y1='%d' x2='%d' y2='%d' />\n",
-                $start_month_col_x, $day_y + $line_gap_below,
-                $start_month_col_x + $month_w - $line_gap_w, $day_y + $line_gap_below;
+                0, $line_gap_below,
+                $month_w - $line_gap_w, $line_gap_below;
 
         # Get the week number (ISO 8601)
         my $timeobject = localtime( $unix_ts );
@@ -232,7 +229,7 @@ for my $month ( 1 .. 12 ) {
         # Show number of week on Mondays
         if ( $dayofweek == 1 ) {
             printf "<text class='weeknumber' x='%d' y='%d' text-anchor='end'>%d</text>\n",
-                    $start_month_col_x + $month_w - $line_gap_w, $day_y, $weeknumber;
+                    $month_w - $line_gap_w, 0, $weeknumber;
         }
 
         # Show week markers on Wednesdays
@@ -240,7 +237,7 @@ for my $month ( 1 .. 12 ) {
             if ( exists $weekmarkers{ $weeknumber } ) {
                 my $marker = $weekmarkers{ $weeknumber };
                 printf "<text class='weekmarker' x='%d' y='%d' text-anchor='end'>%s</text>\n",
-                        $start_month_col_x + $month_w - $line_gap_w, $day_y, $marker;
+                        $month_w - $line_gap_w, 0, $marker;
             }
         }
 
@@ -248,16 +245,19 @@ for my $month ( 1 .. 12 ) {
         if ( exists $daymarkers{ $ymd } ) {
             my $marker = $daymarkers{ $ymd };
             printf "<text class='daymarker' x='%d' y='%d' text-anchor='end'>%s</text>\n",
-                    $start_month_col_x + $month_w - $line_gap_w * 2, $day_y, $marker;
+                    $month_w - $line_gap_w * 2, 0, $marker;
         }
 
         # Notation?
         if ( defined $highlight_days->[0]->{notations}->{$ymd} ) {
             printf "<text class='notation' x='%d' y='%d'>%s</text>\n",
-                    $start_month_col_x + int( $month_w / 2),
-                    $day_y,
+                    int( $month_w / 2),
+                    0,
                     $highlight_days->[0]->{notations}->{$ymd};
         }
+
+        printf "</g>\n";
+
     }
 }
 
