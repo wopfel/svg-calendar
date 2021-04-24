@@ -157,7 +157,7 @@ if ( -e $daymarkers_filename ) {
 for my $month ( 1 .. 12 ) {
     my $start_month_col_x = $margin_left + $month_w*($month-1);
 
-    # Begin group
+    # Begin group (month)
     printf "<g transform='translate(%d,%d)'>\n",
            $start_month_col_x,
            $start_month_names_y;
@@ -180,7 +180,7 @@ for my $month ( 1 .. 12 ) {
         my $dayofweek = (localtime( $unix_ts ))[6];
         my $dayofyear = (localtime( $unix_ts ))[7];
 
-        # Begin group
+        # Begin group (day)
         printf "<g transform='translate(%d,%d)'>\n",
                0,
                $day_y;
@@ -261,10 +261,12 @@ for my $month ( 1 .. 12 ) {
                     $highlight_days->[0]->{notations}->{$ymd};
         }
 
+        # End group (day)
         printf "</g>\n";
 
     }
 
+    # End group (month)
     printf "</g>\n";
 }
 
