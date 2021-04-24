@@ -175,14 +175,21 @@ for my $month ( 1 .. 12 ) {
         my $dayofweek = (localtime( $unix_ts ))[6];
         my $dayofyear = (localtime( $unix_ts ))[7];
 
+        # Begin group
+        printf "<g transform='translate(%d,%d)'>\n",
+               $start_month_col_x,
+               $day_y;
+
         # Highlight day?
         my $ymd = sprintf "%04d-%02d-%02d", $year, $month, $day;
         if ( defined $highlight_days->[0]->{highlights}->{$ymd} ) {
             printf "<rect x='%d' y='%d' width='%d' height='%d' style='%s' />\n",
-                    $start_month_col_x, $day_y - $day_step_h + 5 + 1,
+                    0, 0 - $day_step_h + 5 + 1,
                     $month_w-$line_gap_w, $day_step_h - 2,
                     $highlight_days->[0]->{highlights}->{$ymd};
         }
+
+        printf "</g>\n";
 
         # Check person's holidays
         for my $person ( sort keys %persons_holidays_table ) {
