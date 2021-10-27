@@ -22,13 +22,21 @@ use warnings;
 use POSIX;
 use Time::Piece;
 use YAML::Tiny;
+use Getopt::Long;
 
 # Local libraries
 use lib "./libs/.";
 use vacation;
 
 
-my $year = 2021;
+#
+# Process command line arguments
+#
+
+# Year from command line (default: current year)
+my $year = 1900 + (localtime)[5];
+GetOptions( "year=i" => \$year )
+or die "Error in command line argument processing";
 
 
 # Calendar size data
