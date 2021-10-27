@@ -35,7 +35,12 @@ use vacation;
 
 # Year from command line (default: current year)
 my $year = 1900 + (localtime)[5];
-GetOptions( "year=i" => \$year )
+# Weekmarker filename (sample: week_markers.txt)
+my $weekmarkers_filename;
+
+GetOptions( "year=i"       => \$year,
+            "weekmarker=s" => \$weekmarkers_filename,
+          )
 or die "Error in command line argument processing";
 
 
@@ -120,8 +125,7 @@ vacation::load( $year );
 
 my %weekmarkers;
 
-my $weekmarkers_filename = "week_markers.txt";
-if ( -e $weekmarkers_filename ) {
+if ( $weekmarkers_filename and -e $weekmarkers_filename ) {
 
     open my $fh, "<", $weekmarkers_filename or die "Cannot open file '$weekmarkers_filename'.";
 
