@@ -81,3 +81,20 @@ The following perl libraries have to be installed:
 - POSIX
 - Time::Piece
 - YAML::Tiny
+
+
+Run tests
+=========
+
+You can run some simple tests using the Test::More library. The test files are
+placed in the ./t directory. Example:
+
+```
+% prove t
+t/00-sanity.t ...... ok
+t/10-syntax.t ...... ok
+t/20-year-tests.t .. ok
+All tests successful.
+Files=3, Tests=5,  0 wallclock secs ( 0.02 usr  0.00 sys +  0.20 cusr  0.04 csys =  0.26 CPU)
+Result: PASS
+```
