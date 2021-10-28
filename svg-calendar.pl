@@ -37,9 +37,12 @@ use vacation;
 my $year = 1900 + (localtime)[5];
 # Weekmarker filename (sample: week_markers.txt)
 my $weekmarkers_filename;
+# Daymarker filename (sample: day_markers.txt)
+my $daymarkers_filename;
 
 GetOptions( "year=i"       => \$year,
             "weekmarker=s" => \$weekmarkers_filename,
+            "daymarker=s"  => \$daymarkers_filename,
           )
 or die "Error in command line argument processing";
 
@@ -145,8 +148,7 @@ if ( $weekmarkers_filename and -e $weekmarkers_filename ) {
 
 my %daymarkers;
 
-my $daymarkers_filename = "day_markers.txt";
-if ( -e $daymarkers_filename ) {
+if ( $daymarkers_filename and -e $daymarkers_filename ) {
 
     open my $fh, "<", $daymarkers_filename or die "Cannot open file '$daymarkers_filename'.";
 
