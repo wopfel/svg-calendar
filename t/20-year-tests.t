@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Test::More;
 
-plan tests => 2;
+plan tests => 3;
 
 my $output;
 my @output;
@@ -17,3 +17,7 @@ chomp @output;
 # March / März: . doesn't match ä
 my $months_matched = scalar grep m{<text class='monthname' x='\d+' y='\d+'>(...|Mär)</text>}, @output;
 is( $months_matched, 12, "Find 12 months" );
+
+# Count weeks
+my $weeks_matched = scalar grep m{<text class='weeknumber' x='\d+' y='\d+' text-anchor='end'>\d+</text>}, @output;
+ok( $weeks_matched >= 50, "Year should have at least 50 weeks" );
