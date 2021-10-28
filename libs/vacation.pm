@@ -66,15 +66,17 @@ sub getDayOfYear {
 #
 # Parameter:
 # 1: Year
+# 2: Filename
 #
 
 sub load {
 
     my $year = shift;
+    my $filename = shift;
 
     # Person's vacation
-    my $vacation = YAML::Tiny->read( "vacation.yml" );
-    die "Error in yml file 'vacation.yml'"  unless  $vacation;
+    my $vacation = YAML::Tiny->read( $filename );
+    die "Error in yml file '$filename'"  unless  $vacation;
 
     # Calculate a table for each person, setting dayofyear to 1 if person is in vacation
     for my $block ( @{ $vacation->[0]->{vacation} } ) {

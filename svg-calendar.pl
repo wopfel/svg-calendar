@@ -41,11 +41,14 @@ my $weekmarkers_filename;
 my $daymarkers_filename;
 # Highlight days filename (sample: highlight_days.yml)
 my $highlightdays_filename;
+# Vacation filename (sample: vacation.yml)
+my $vacation_filename;
 
 GetOptions( "year=i"           => \$year,
             "weekmarker=s"     => \$weekmarkers_filename,
             "daymarker=s"      => \$daymarkers_filename,
             "highlightdays=s"  => \$highlightdays_filename,
+            "vacation=s"       => \$vacation_filename,
           )
 or die "Error in command line argument processing";
 
@@ -125,7 +128,7 @@ die "Error in yml file 'holidays.yml'"  unless  $holidays;
 # Vacation
 #
 
-vacation::load( $year );
+vacation::load( $year, $vacation_filename )  if  $vacation_filename;
 
 
 #

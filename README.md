@@ -49,6 +49,8 @@ Vacation can be specified using the following formats:
 - `mm-dd - mm-dd`: from (first day), to (last day) omitting the year
 - `mm-dd`: only on this day, omitting the year
 
+Command line switch: `-vacation vacation.yml`
+
 
 File highlight_days.yml
 =======================
