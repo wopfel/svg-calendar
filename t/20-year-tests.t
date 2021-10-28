@@ -20,7 +20,7 @@ is( $months_matched, 12, "Find 12 months" );
 
 # Count weeks
 my $weeks_matched = scalar grep m{<text class='weeknumber' x='\d+' y='\d+' text-anchor='end'>\d+</text>}, @output;
-cmp_ok( $weeks_matched, '>=', 50, "Year should have at least 50 weeks" );
+cmp_ok( $weeks_matched, '==', 52, "Year 2021 should have 52 weeks" );
 
 # Count days
 my $days_matched = scalar grep m{<text class='dayofmonth' x='\d+' y='\d+'>\d+</text>}, @output;
