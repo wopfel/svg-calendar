@@ -4,4 +4,4 @@ data_files = day_markers.txt highlight_days.yml vacation.yml holidays.yml \
 perl_modules = libs/vacation.pm
 
 sample-calendar.svg: svg-calendar.pl $(data_files) $(perl_modules)
-	perl svg-calendar.pl -year 2021 -weekmarker week_markers.txt -daymarker day_markers.txt > sample-calendar.svg
+	perl svg-calendar.pl -year 2021 -weekmarker week_markers.txt -daymarker day_markers.txt -highlightdays highlight_days.yml > sample-calendar.svg

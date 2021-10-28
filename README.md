@@ -57,6 +57,8 @@ You can format a day's cell using css code, or you can add notations.
 
 ![Highlight days](documentation/highlight_days.png)
 
+Command line switch: `-highlightdays highlight_days.yml`
+
 
 File holidays.yml
 =================

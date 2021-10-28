@@ -39,10 +39,13 @@ my $year = 1900 + (localtime)[5];
 my $weekmarkers_filename;
 # Daymarker filename (sample: day_markers.txt)
 my $daymarkers_filename;
+# Highlight days filename (sample: highlight_days.yml)
+my $highlightdays_filename;
 
-GetOptions( "year=i"       => \$year,
-            "weekmarker=s" => \$weekmarkers_filename,
-            "daymarker=s"  => \$daymarkers_filename,
+GetOptions( "year=i"           => \$year,
+            "weekmarker=s"     => \$weekmarkers_filename,
+            "daymarker=s"      => \$daymarkers_filename,
+            "highlightdays=s"  => \$highlightdays_filename,
           )
 or die "Error in command line argument processing";
 
@@ -103,8 +106,11 @@ my @dayofweek_text = qw/ So Mo Di Mi Do Fr Sa /;
 # Read highlight days (also used for notations)
 #
 
-my $highlight_days = YAML::Tiny->read( "highlight_days.yml" );
-die "Error in yml file 'highlight_days.yml'"  unless  $highlight_days;
+my $highlight_days;
+if ( $highlightdays_filename ) {
+    $highlight_days = YAML::Tiny->read( $highlightdays_filename );
+    die "Error in yml file '$highlightdays_filename'"  unless  $highlight_days;
+}
 
 
 #
