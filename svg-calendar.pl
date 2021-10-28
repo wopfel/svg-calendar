@@ -226,7 +226,8 @@ for my $month ( 1 .. 12 ) {
         }
 
         # Day (1, 2, ...)
-        printf "<text x='%d' y='%d'>%d</text>\n", 0, 0, $day;
+        printf "<text class='%s' x='%d' y='%d'>%d</text>\n",
+               "dayofmonth", 0, 0, $day;
         # Day of week
         printf "<text class='%s' x='%d' y='%d'>%s</text>\n",
                join( " ", grep length,

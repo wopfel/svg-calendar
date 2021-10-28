@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Test::More;
 
-plan tests => 3;
+plan tests => 4;
 
 my $output;
 my @output;
@@ -21,3 +21,7 @@ is( $months_matched, 12, "Find 12 months" );
 # Count weeks
 my $weeks_matched = scalar grep m{<text class='weeknumber' x='\d+' y='\d+' text-anchor='end'>\d+</text>}, @output;
 cmp_ok( $weeks_matched, '>=', 50, "Year should have at least 50 weeks" );
+
+# Count days
+my $days_matched = scalar grep m{<text class='dayofmonth' x='\d+' y='\d+'>\d+</text>}, @output;
+cmp_ok( $days_matched, '==', 365, "Year 2021 should have 365 days" );

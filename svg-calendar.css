@@ -5,6 +5,9 @@
 text {
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
+text.dayofmonth {
+    fill: #111;
+}
 text.monthname {
     font-size: 150%;
 }
