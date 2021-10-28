@@ -67,6 +67,19 @@ Defining (public) holidays. The weekday text is formatted using CSS
 ![Holidays](documentation/holidays.png)
 
 
+File day_markers.txt
+====================
+
+The following example will place an "X" on January 8th: `2021-01-08   X`
+
+
+File week_markers.txt
+=====================
+
+The following example will place an "A" on the 3rd week of the year: `3   A`.
+The Text is placed inside the Wednesday's box of that week.
+
+
 Developer hints
 ===============
 
