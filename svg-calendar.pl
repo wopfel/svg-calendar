@@ -43,14 +43,20 @@ my $daymarkers_filename;
 my $highlightdays_filename;
 # Vacation filename (sample: vacation.yml)
 my $vacation_filename;
+# Call for help
+my $opt_help;
 
 GetOptions( "year=i"           => \$year,
             "weekmarker=s"     => \$weekmarkers_filename,
             "daymarker=s"      => \$daymarkers_filename,
             "highlightdays=s"  => \$highlightdays_filename,
             "vacation=s"       => \$vacation_filename,
+            "h|help"           => \$opt_help,
           )
 or die "Error in command line argument processing";
+
+# Check command line arguments
+showUsage() if $opt_help;
 
 
 # Calendar size data
@@ -295,3 +301,32 @@ for my $month ( 1 .. 12 ) {
 }
 
 print "</svg>\n";
+
+
+#
+# Sub usage()
+#
+
+sub showUsage {
+
+    print STDERR <<"USAGE";
+
+This program generates a 12-month calender as an SVG file. The file can
+then be displayed in e. g. a web browser.
+
+Usage: perl $0 [options]
+
+Possible options are:
+
+  -help                 Print this help screen and exit.
+  -year YEAR            Generate a calendar of YEAR (default: current year).
+  -weekmarker FILE      Read week markers from FILE.
+  -daymarker FILE       Read day markers from FILE.
+  -highlightdays FILE   Read highlights and notations from FILE.
+  -vacation FILE        Read vacation data from FILE.
+
+USAGE
+
+    exit 1;
+
+}
