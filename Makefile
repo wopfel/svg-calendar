@@ -9,5 +9,10 @@ parameters += -daymarker day_markers.txt
 parameters += -highlightdays highlight_days.yml
 parameters += -vacation vacation.yml
 
+.PHONY : test
+
 sample-calendar.svg: svg-calendar.pl $(data_files) $(perl_modules)
 	perl svg-calendar.pl $(parameters) > sample-calendar.svg
+
+test:
+	prove t/

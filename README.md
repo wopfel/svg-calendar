@@ -108,14 +108,17 @@ Run tests
 =========
 
 You can run some simple tests using the Test::More library. The test files are
-placed in the ./t directory. Example:
+placed in the ./t directory. Just run `make test`. Example:
 
 ```
-% prove t
-t/00-sanity.t ...... ok
-t/10-syntax.t ...... ok
-t/20-year-tests.t .. ok
+% make test
+prove t/
+t/00-sanity.t ....... ok
+t/10-syntax.t ....... ok
+t/20-year-tests.t ... ok
+t/21-no-cli-args.t .. ok
+t/22-leap-year.t .... ok
 All tests successful.
-Files=3, Tests=5,  0 wallclock secs ( 0.02 usr  0.00 sys +  0.20 cusr  0.04 csys =  0.26 CPU)
+Files=5, Tests=15,  0 wallclock secs ( 0.03 usr  0.01 sys +  0.41 cusr  0.08 csys =  0.53 CPU)
 Result: PASS
 ```
