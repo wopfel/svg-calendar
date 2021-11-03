@@ -53,7 +53,7 @@ GetOptions( "year=i"           => \$year,
             "vacation=s"       => \$vacation_filename,
             "h|help"           => \$opt_help,
           )
-or die "Error in command line argument processing";
+or do { print STDERR "Error in command line argument processing. Try '$0 -help'.\n"; exit 1; };
 
 # Check command line arguments
 showUsage() if $opt_help;
