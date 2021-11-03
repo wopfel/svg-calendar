@@ -311,7 +311,7 @@ sub showUsage {
 
     print STDERR <<"USAGE";
 
-This program generates a 12-month calender as an SVG file. The file can
+This program generates a 12-month calendar as an SVG file. The file can
 then be displayed in e. g. a web browser.
 
 Usage: perl $0 [options]
