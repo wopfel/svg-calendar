@@ -3,6 +3,8 @@
 Creates an image of an annual calendar (kind of a wall calendar).
 The calendar is saved as a .svg file.
 
+![Sample 2021](documentation/sample_2021.png)
+
 
 How to create the calendar file
 ===============================
