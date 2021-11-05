@@ -2,6 +2,7 @@
 holidays:
   01-01: Neujahr
   01-06: Heilige 3 Könige
+  05-01: Maifeiertag
   10-03: Tag der deutschen Einheit
   11-01: Allerheiligen
   12-25: 1. Weihnachtsfeiertag
@@ -9,7 +10,6 @@ holidays:
   2021-04-02: Karfreitag
   2021-04-04: Ostersonntag
   2021-04-05: Ostermontag
-  2021-05-01: Maifeiertag
   2021-05-13: Christi Himmelfahrt
   2021-05-23: Pfingstsonntag
   2021-05-24: Pfingstmontag
