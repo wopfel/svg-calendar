@@ -14,6 +14,7 @@ Review the following files
 - highlight_days.yml: format specific days using CSS (example: background color of Dec 24th)
 - vacation.yml: person's vaction
 - svg-calendar.css: CSS definitions for the SVG file
+- holidays.yml: holiday data
 
 Create the .svg file by running
 
