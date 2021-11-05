@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use Test::More;
 
-plan tests => 4;
+plan tests => 5;
 
 my $output;
 my @output;
@@ -25,3 +25,7 @@ cmp_ok( $weeks_matched, '==', 52, "Year 2021 should have 52 weeks" );
 # Count days
 my $days_matched = scalar grep m{<text class='dayofmonth' x='\d+' y='\d+'>\d+</text>}, @output;
 cmp_ok( $days_matched, '==', 365, "Year 2021 should have 365 days" );
+
+# Count holiday days (0 if no holidays file specified)
+my $holidays_matched = scalar grep m{<text.*class='[^']*holiday[^']*'}, @output;
+cmp_ok( $holidays_matched, '==', 0, "Year 2021 should have 0 holiday days without holidays file" );

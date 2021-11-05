@@ -8,6 +8,7 @@ parameters += -weekmarker week_markers.txt
 parameters += -daymarker day_markers.txt
 parameters += -highlightdays highlight_days.yml
 parameters += -vacation vacation.yml
+parameters += -holidays holidays.yml
 
 .PHONY : test
 

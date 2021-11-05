@@ -45,12 +45,15 @@ my $highlightdays_filename;
 my $vacation_filename;
 # Call for help
 my $opt_help;
+# Holidays filename (sample: holidays.yml)
+my $holidays_filename;
 
 GetOptions( "year=i"           => \$year,
             "weekmarker=s"     => \$weekmarkers_filename,
             "daymarker=s"      => \$daymarkers_filename,
             "highlightdays=s"  => \$highlightdays_filename,
             "vacation=s"       => \$vacation_filename,
+            "holidays=s"       => \$holidays_filename,
             "h|help"           => \$opt_help,
           )
 or do { print STDERR "Error in command line argument processing. Try '$0 -help'.\n"; exit 1; };
@@ -126,8 +129,11 @@ if ( $highlightdays_filename ) {
 # Read holidays
 #
 
-my $holidays = YAML::Tiny->read( "holidays.yml" );
-die "Error in yml file 'holidays.yml'"  unless  $holidays;
+my $holidays;
+if ( $holidays_filename ) {
+    $holidays = YAML::Tiny->read( "holidays.yml" );
+    die "Error in yml file '$holidays_filename'"  unless  $holidays;
+}
 
 
 #
@@ -324,6 +330,7 @@ Possible options are:
   -daymarker FILE       Read day markers from FILE.
   -highlightdays FILE   Read highlights and notations from FILE.
   -vacation FILE        Read vacation data from FILE.
+  -holidays FILE        Read holiday data from FILE.
 
 USAGE
 

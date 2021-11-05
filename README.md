@@ -70,6 +70,8 @@ Defining (public) holidays. The weekday text is formatted using CSS
 
 ![Holidays](documentation/holidays.png)
 
+Command line switch: `-holidays holidays.yml`
+
 
 File day_markers.txt
 ====================
