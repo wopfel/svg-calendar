@@ -208,6 +208,7 @@ for my $month ( 1 .. 12 ) {
     for my $day ( 1 .. $days_this_month ) {
 
         # Format date string
+        my $ymd = sprintf "%04d-%02d-%02d", $year, $month, $day;
         my $md  = sprintf "%02d-%02d", $month, $day;
 
         # Calculate positions
@@ -224,7 +225,6 @@ for my $month ( 1 .. 12 ) {
                $day_y;
 
         # Highlight day?
-        my $ymd = sprintf "%04d-%02d-%02d", $year, $month, $day;
         if ( defined $highlight_days->[0]->{highlights}->{$ymd} ) {
             printf "<rect x='%d' y='%d' width='%d' height='%d' style='%s' />\n",
                     0, 0 - $day_step_h + 5 + 1,
