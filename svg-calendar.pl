@@ -207,6 +207,9 @@ for my $month ( 1 .. 12 ) {
     # Cycle through all days (1 -> 28/29/30/31)
     for my $day ( 1 .. $days_this_month ) {
 
+        # Format date string
+        my $md  = sprintf "%02d-%02d", $month, $day;
+
         # Calculate positions
         my $day_y = $start_days_of_month_y + $day_step_h * $day;
         my $line_gap_w = 5;
@@ -254,7 +257,8 @@ for my $month ( 1 .. 12 ) {
                join( " ", grep length,
                      "nameofday",
                      "dayofweek$dayofweek",
-                     defined $holidays->[0]->{holidays}->{$ymd} ? "holiday" : ""
+                     defined $holidays->[0]->{holidays}->{$ymd} ? "holiday" : "",
+                     defined $holidays->[0]->{holidays}->{$md} ? "holiday" : "",
                     ),
                25, 0,
                $dayofweek_text[$dayofweek];

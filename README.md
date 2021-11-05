@@ -68,6 +68,10 @@ File holidays.yml
 Defining (public) holidays. The weekday text is formatted using CSS
 `text.holiday`.
 
+You can specify entries using the format YYYY-MM-DD.
+Also, for recurring holidays (on a fixed day each year), the format MM-DD
+is also valid.
+
 ![Holidays](documentation/holidays.png)
 
 Command line switch: `-holidays holidays.yml`
