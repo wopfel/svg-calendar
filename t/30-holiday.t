@@ -16,4 +16,4 @@ chomp @output;
 
 # Count holiday days
 my $holidays_matched = scalar grep m{<text class='nameofday dayofweek\d holiday' x='\d+' y='\d+'>[[:alnum:]]+</text>}, @output;
-cmp_ok( $holidays_matched, '==', 4, "Year 2021 should have 4 holiday days" );
+cmp_ok( $holidays_matched, '==', 14, "Year 2021 should have 14 holiday days" );

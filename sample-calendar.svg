@@ -6,7 +6,7 @@
 <text class='monthname' x='0' y='0'>Jan</text>
 <g transform='translate(0,30)'>
 <text class='dayofmonth' x='0' y='0'>1</text>
-<text class='nameofday dayofweek5' x='25' y='0'>Fr</text>
+<text class='nameofday dayofweek5 holiday' x='25' y='0'>Fr</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 </g>
 <g transform='translate(0,55)'>
@@ -32,7 +32,7 @@
 </g>
 <g transform='translate(0,155)'>
 <text class='dayofmonth' x='0' y='0'>6</text>
-<text class='nameofday dayofweek3' x='25' y='0'>Mi</text>
+<text class='nameofday dayofweek3 holiday' x='25' y='0'>Mi</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 </g>
 <g transform='translate(0,180)'>
@@ -736,7 +736,7 @@
 </g>
 <g transform='translate(0,330)'>
 <text class='dayofmonth' x='0' y='0'>13</text>
-<text class='nameofday dayofweek4' x='25' y='0'>Do</text>
+<text class='nameofday dayofweek4 holiday' x='25' y='0'>Do</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 </g>
 <g transform='translate(0,355)'>
@@ -787,12 +787,12 @@
 </g>
 <g transform='translate(0,580)'>
 <text class='dayofmonth' x='0' y='0'>23</text>
-<text class='nameofday dayofweek0' x='25' y='0'>So</text>
+<text class='nameofday dayofweek0 holiday' x='25' y='0'>So</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 </g>
 <g transform='translate(0,605)'>
 <text class='dayofmonth' x='0' y='0'>24</text>
-<text class='nameofday dayofweek1' x='25' y='0'>Mo</text>
+<text class='nameofday dayofweek1 holiday' x='25' y='0'>Mo</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 <text class='weeknumber' x='105' y='0' text-anchor='end'>21</text>
 </g>
@@ -847,7 +847,7 @@
 </g>
 <g transform='translate(0,80)'>
 <text class='dayofmonth' x='0' y='0'>3</text>
-<text class='nameofday dayofweek4' x='25' y='0'>Do</text>
+<text class='nameofday dayofweek4 holiday' x='25' y='0'>Do</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 <text class='notation' x='55' y='0'>x1</text>
 </g>
@@ -1492,7 +1492,7 @@
 </g>
 <g transform='translate(0,80)'>
 <text class='dayofmonth' x='0' y='0'>3</text>
-<text class='nameofday dayofweek0' x='25' y='0'>So</text>
+<text class='nameofday dayofweek0 holiday' x='25' y='0'>So</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 </g>
 <g transform='translate(0,105)'>
@@ -1644,7 +1644,7 @@
 <text class='monthname' x='0' y='0'>Nov</text>
 <g transform='translate(0,30)'>
 <text class='dayofmonth' x='0' y='0'>1</text>
-<text class='nameofday dayofweek1' x='25' y='0'>Mo</text>
+<text class='nameofday dayofweek1 holiday' x='25' y='0'>Mo</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 <text class='weeknumber' x='105' y='0' text-anchor='end'>44</text>
 </g>
@@ -1931,12 +1931,12 @@
 </g>
 <g transform='translate(0,630)'>
 <text class='dayofmonth' x='0' y='0'>25</text>
-<text class='nameofday dayofweek6' x='25' y='0'>Sa</text>
+<text class='nameofday dayofweek6 holiday' x='25' y='0'>Sa</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 </g>
 <g transform='translate(0,655)'>
 <text class='dayofmonth' x='0' y='0'>26</text>
-<text class='nameofday dayofweek0' x='25' y='0'>So</text>
+<text class='nameofday dayofweek0 holiday' x='25' y='0'>So</text>
 <line x1='0' y1='5' x2='105' y2='5' />
 </g>
 <g transform='translate(0,680)'>
