@@ -49,6 +49,15 @@ text.notation {
     font-size: 90%;
 }
 
+/* Day rect */
+rect.dayrect {
+    fill: none;
+}
+/* Light gray background for Saturday and Sunday */
+rect.dayofweek6, rect.dayofweek0 {
+    fill: #eee;
+}
+
 /* Style of each person's vacation bar */
 /* The suffix relates to the name: property in vacation.yml */
 .person_holiday_bs {

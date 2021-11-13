@@ -224,6 +224,11 @@ for my $month ( 1 .. 12 ) {
                0,
                $day_y;
 
+        # Rect box
+        printf "<rect class='%s' x='%d' y='%d' width='%d' height='%d' />\n",
+               "dayrect dayofweek$dayofweek",
+               0, -19, 105, 23;
+
         # Highlight day?
         if ( defined $highlight_days->[0]->{highlights}->{$ymd} ) {
             printf "<rect x='%d' y='%d' width='%d' height='%d' style='%s' />\n",
