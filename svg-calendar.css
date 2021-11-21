@@ -57,12 +57,3 @@ rect.dayrect {
 rect.dayofweek6, rect.dayofweek0 {
     fill: #eee;
 }
-
-/* Style of each person's vacation bar */
-/* The suffix relates to the name: property in vacation.yml */
-.person_holiday_bs {
-    fill: rgb(150, 255, 150);
-}
-.person_holiday_th {
-    fill: rgb(150, 150, 255);
-}

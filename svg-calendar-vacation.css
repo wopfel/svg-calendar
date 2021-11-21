@@ -1,0 +1,12 @@
+/* This file is part of
+   https://github.com/wopfel/svg-calendar
+*/
+
+/* Style of each person's vacation bar */
+/* The suffix relates to the name: property in vacation.yml */
+.person_holiday_bs {
+    fill: rgb(150, 255, 150);
+}
+.person_holiday_th {
+    fill: rgb(150, 150, 255);
+}

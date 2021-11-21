@@ -98,6 +98,7 @@ print qq{<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n};
 print qq{<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">\n};
 
 print qq{<?xml-stylesheet type="text/css" href="svg-calendar.css" ?>\n};
+print qq{<?xml-stylesheet type="text/css" href="svg-calendar-vacation.css" ?>\n};
 
 # Calculate width and height
 my $svg_width = $month_w * 12 + $margin_left;
